@@ -3,7 +3,7 @@ A maven plugin to generate docs for helm charts. Supports generating docs of sub
 
 As there are no comment preserving yaml parsers, the plugin just goes through all the yaml comments (**#**) and builds the docs from them. 
 
-# Sample POM 
+### Sample POM 
 ```xml
 <build>
   <plugins>
@@ -25,14 +25,14 @@ As there are no comment preserving yaml parsers, the plugin just goes through al
 </build>
 ```
 
-# Usage
+### Usage
 **mvn org.aurad:helm-doc-maven-plugin:0.0.1-SNAPSHOT:generate**
 
-## Screenshot: 
+### Screenshot: 
 <img src="https://github.com/aurabhi/helm-doc/blob/main/Screenshot.png" width="600" height="400" alt="Screenshot">
 
 
-## TODO
+### TODO
 * The existing yaml parsers do not preserve the comments. Build a comment preserving parser!
 * Add *mvn plugin docs*
 * Support **Helm** **V2** and **V3** charts.
