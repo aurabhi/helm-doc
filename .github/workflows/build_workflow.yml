@@ -18,6 +18,13 @@ jobs:
       with:
         java-version: 8
 
+    - name: Cache the dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+        
     - name: Build plugin
       working-directory: ./helm-doc-maven-plugin
       run: mvn -B install --file pom.xml
