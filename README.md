@@ -1,5 +1,7 @@
 # helm-doc
-A maven plugin to generate docs for a helm charts. Supports generating docs of subcharts optionally. The docs are generated in **html** format. Planning to support **markdown** and other formats. 
+A maven plugin to generate docs for helm charts. Supports generating docs of subcharts optionally. The docs are generated in **html** format. Planning to support **markdown** and other formats. 
+
+As there are no comment preserving yaml parsers, the plugin just goes through all the yaml comments (**#**) and builds the docs from them. 
 
 # Sample POM 
 ```xml
