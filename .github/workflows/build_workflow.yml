@@ -18,6 +18,10 @@ jobs:
       with:
         java-version: 8
 
-    - name: Build project with Maven
+    - name: Build plugin
       working-directory: ./helm-doc-maven-plugin
       run: mvn -B package --file pom.xml
+      
+    - name: Build plugin-test
+      working-directory: ./helm-doc-maven-plugin-test
+      run: mvn org.aurad:helm-doc-maven-plugin:0.0.1-SNAPSHOT:generate
