@@ -3,6 +3,7 @@ appVersion: 1.0
 description: Test Helm Chart
 name: helm-doc-maven-plugin-test
 version: 0.0.1
+kubeVersion: 1.15.1
 dependencies:
   - name: redis
     version: 12.1.3
