@@ -11,4 +11,5 @@ A maven plugin to generate docs for a helm charts.
 * Support **Helm** **V2** and **V3** charts.
 * Add all the fields of the chart to the generated files.
 * Support generating in other formats like **markdown**
+* Embedd helm chart icon(**V3**) into the generated docs.
 * Make a nice icon. 
