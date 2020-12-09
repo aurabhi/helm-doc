@@ -2,7 +2,7 @@
 A maven plugin to generate docs for a helm charts. 
 
 ## Screenshot: 
-![alt text](https://github.com/aurabhi/helm-doc/Screenshot.png "Generated HTML Doc")
+![alt text](https://github.com/aurabhi/helm-doc/blob/main/Screenshot.png "Generated HTML Doc")
 
 ## TODO
 * The existing yaml parsers do not preserve the comments. Build a comment preserving parser!
