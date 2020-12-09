@@ -50,7 +50,7 @@ jobs:
           working-directory: ./helm-doc-maven-plugin
           run: pwd && mkdir ./staging && cp ./target/helm-doc-maven-plugin-*.jar ./staging
 
-        - uses: actions/upload-artifact@v1
+        - uses: actions/upload-artifact@v2
           with:
             name: Package
             path: staging
