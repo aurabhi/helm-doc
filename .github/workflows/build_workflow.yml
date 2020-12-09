@@ -20,7 +20,7 @@ jobs:
 
     - name: Build plugin
       working-directory: ./helm-doc-maven-plugin
-      run: mvn -B package --file pom.xml
+      run: mvn -B install --file pom.xml
       
     - name: Build plugin-test
       working-directory: ./helm-doc-maven-plugin-test
