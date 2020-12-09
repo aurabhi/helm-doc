@@ -41,3 +41,8 @@ As there are no comment preserving yaml parsers, the plugin just goes through al
 * Support generating in other formats like **markdown**
 * Embedd helm chart icon(**V3**) into the generated docs.
 * Make a nice icon. 
+
+
+| <a href="https://bulma.io">
+<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+</a> | <a href="https://freemarker.apache.org/"><img src="https://freemarker.apache.org/logo.png" width="128" height="24"></a> |
