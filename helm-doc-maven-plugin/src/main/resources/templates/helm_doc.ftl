@@ -165,38 +165,78 @@
                 </div>
             </nav>
 		</div>
-	    <div class="columns">
-		    <div class="column is-two-thirds">
-		    	<h2 class="title is-2">${chart.name}</h2>
-		    	<table class="table is-bordered is-striped">
-                    <tr>
-                        <th>Version</th>
-                        <td>${chart.version}</td>
-                    </tr>
-                    <tr>
-                        <th>kubeVersion</th>
-                        <td>${chart.kubeVersion}</td>
-                    </tr>
-                    <tr>
-                        <th>description</th>
-                        <td>${chart.description}</td>
-                    </tr>
-                </table>
+		<div class=" column mt-1 is-full mr-0"><h2 class="title is-2">${chart.name}</h2></div>
+	    <div class="columns mt-1">
+		    <div class="columns is-three-quarters">
+		        <div class="column is-half">
+                    <table class="table is-bordered is-striped is-fullwidth">
+                        <tr>
+                            <th>Version</th>
+                            <td>${chart.version}</td>
+                        </tr>
+                        <tr>
+                            <th>description</th>
+                            <td>${chart.description}</td>
+                        </tr>
+                        <tr>
+                            <th>kubeVersion</th>
+                            <td>${chart.kubeVersion}</td>
+                        </tr>
+                        <tr>
+                            <th>appVersion</th>
+                            <td>${chart.appVersion}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="column is-half is-fullwidth">
+                    <table class="table is-bordered is-striped is-justify-content-end">
+                        <#if chart.maintainers??>
+                        <tr>
+                            <th>Maintainers</th>
+                            <td>
+                                <#list chart.maintainers as maintainer>
+                                    <ul> <b>${maintainer.name}</b> - <a href="${maintainer.email}">${maintainer.email}</a> </ul>
+                                </#list>
+                            </td>
+                        </tr>
+                        </#if>
+                        <#if chart.sources??>
+                        <tr>
+                            <th>Sources</th>
+                            <td>
+                                <#list chart.sources as source>
+                                    <ul> <a href='${source}'>${source}</a> </ul>
+                                </#list>
+                            </td>
+                        </tr>
+                        </#if>
+                        <#if chart.keywords??>
+                        <tr>
+                            <th>Keywords</th>
+                            <td>
+                                <#list chart.keywords as keyword>
+                                    <span class="tag is-primary is-normal is-light">${keyword}</span>
+                                </#list>
+                            </td>
+                        </tr>
+                        </#if>
+                    </table>
+                </div>
              </div>
             <div class="column">
                 <#if isDep>
-                   <h5 class="title is-6">Root: <a href="../${rootHelm}.html"><span class="tag is-primary is-medium">${rootHelm}</span></a></h2>
+                   <h5 class="title is-6">Root: <a href="../${rootHelm}.html"><span class="tag is-primary is-normal">${rootHelm}</span></a></h2>
                    <#if rootHelm != parentHelm >
-                    <h5 class="title is-6">Parent: <a href="./${parentHelm}.html"><span class="tag is-primary is-medium">${parentHelm}</span></a></h2>
+                    <h5 class="title is-6">Parent: <a href="./${parentHelm}.html"><span class="tag is-primary is-normal">${parentHelm}</span></a></h2>
                    </#if>
                 </#if>
                 <#if chart.dependencies??>
                     <h2 class="title is-2">Dependencies</h2>
                     <#list chart.dependencies as dependency>
                         <#if !isDep>
-                            <a href="./dependencies/${dependency.name}.html"><span class="tag is-primary is-medium">${dependency.name}</span></a>
+                            <a href="./dependencies/${dependency.name}.html"><span class="tag is-primary is-normal">${dependency.name}</span></a>
                         <#else>
-                            <a href="./${dependency.name}.html"><span class="tag is-primary is-medium">${dependency.name}</span></a>
+                            <a href="./${dependency.name}.html"><span class="tag is-primary is-normal">${dependency.name}</span></a>
                         </#if>
                     </#list>
                     <hr>

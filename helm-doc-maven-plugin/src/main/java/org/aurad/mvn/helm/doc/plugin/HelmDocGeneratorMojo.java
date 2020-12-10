@@ -1,10 +1,6 @@
 package org.aurad.mvn.helm.doc.plugin;
 
 
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
-import freemarker.template.Version;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -17,11 +13,10 @@ import org.aurad.mvn.helm.doc.plugin.model.Dependency;
 import org.aurad.mvn.helm.doc.plugin.model.HelmDoc;
 import org.aurad.mvn.helm.doc.plugin.model.ValuesParameter;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.util.List;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
-
 public class HelmDocGeneratorMojo  extends AbstractMojo {
 
     private static final String VALUES_FILE = "values.yaml";
@@ -32,8 +27,6 @@ public class HelmDocGeneratorMojo  extends AbstractMojo {
     //private static final String REQUIREMENTS_FILE = "requirements.yaml";
 
     private static final String DEP_CHART_DIR = "charts/";
-
-    private static final String TEMPLATES_RES_DIR = "/templates/";
 
     @Parameter(property ="helmSourceDirectory", defaultValue="./src/helm/")
     private String helmSourceDir;
@@ -53,7 +46,9 @@ public class HelmDocGeneratorMojo  extends AbstractMojo {
     @Parameter(property = "phase")
     private String phase;
 
-    private String baseHelm = null;
+    private String rootHelm = null;
+
+    private DocGenerator docGenerator;
 
     private Log log = getLog();
 
@@ -74,9 +69,14 @@ public class HelmDocGeneratorMojo  extends AbstractMojo {
     }
 
     private void init() {
-        File targetDir = new File(this.destinationDir);
-        targetDir.mkdirs();
+        Utils.mkdirP(this.destinationDir);
         log.debug("Created the destination directory");
+
+        try {
+            this.docGenerator = new HtmlDocGenerator();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void generateDocs(String chartDir, boolean isDepedency, String parent) {
@@ -85,7 +85,7 @@ public class HelmDocGeneratorMojo  extends AbstractMojo {
             log.info(" Loaded Chart: " + chart.getName() );
             log.debug(" Is Chart: " + chart.getName() + " a dependency: " + isDepedency );
             if( !isDepedency ) {
-                this.baseHelm = chart.getName();
+                this.rootHelm = chart.getName();
             }
 
             List<ValuesParameter> valuesParameters = Utils.parseYamlToValueParameters(chartDir + "/" + VALUES_FILE);
@@ -94,9 +94,10 @@ public class HelmDocGeneratorMojo  extends AbstractMojo {
             helmDoc.setChart(chart);
             helmDoc.setValuesParameters(valuesParameters);
 
-            String docs = generateDocInHtml(helmDoc, isDepedency, parent);
+            String docs = docGenerator.generate(helmDoc, rootHelm, isDepedency, parent);
             String docDestination = isDepedency ? this.destinationDir + "dependencies/" : this.destinationDir;
-            saveDocToFile(docs, docDestination, chart.getName() + "." + format);
+            Utils.saveDocToFile(docs, docDestination, chart.getName() + "." + format);
+            log.info("Saved doc: "+docDestination + chart.getName() + "." + format);
 
             if( this.generateDependencyDocs && null != chart.getDependencies() ) {
                 for(Dependency d : chart.getDependencies()) {
@@ -106,45 +107,8 @@ public class HelmDocGeneratorMojo  extends AbstractMojo {
             } else {
                 return;
             }
-        } catch ( IOException e ) {
+        } catch ( Exception e) {
             e.printStackTrace();
-        }  catch (TemplateException e) {
-            log.error("Failed running the template!!!");
-            e.printStackTrace();
-        }
-    }
-
-    private String generateDocInHtml(HelmDoc helmDoc, boolean isDependency, String parent) throws IOException, TemplateException {
-        String docs = "";
-        Configuration cfg = new Configuration(new Version("2.3.23"));
-        cfg.setClassForTemplateLoading(this.getClass(), TEMPLATES_RES_DIR);
-        cfg.setDefaultEncoding("UTF-8");
-
-        Template template = cfg.getTemplate("helm_doc.ftl");
-        Map<String, Object> templateData = new HashMap<>();
-        templateData.put("rootHelm", this.baseHelm);
-        templateData.put("parentHelm", parent);
-        templateData.put("chart", helmDoc.getChart());
-        templateData.put("params", helmDoc.getValuesParameters());
-        templateData.put("isDep", isDependency);
-
-        try (StringWriter out = new StringWriter()) {
-            template.process(templateData, out);
-            docs = out.getBuffer().toString();
-        }
-        return docs;
-    }
-
-
-    private void saveDocToFile(String docs, String filePath, String fileName) throws IOException {
-        File f = new File(filePath);
-        if( !f.exists() ) {
-            f.mkdirs();
-        }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath+fileName))) {
-            writer.write(docs);
-            writer.flush();
-            log.info("Saved doc: "+filePath+fileName);
         }
     }
 

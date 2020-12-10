@@ -21,6 +21,13 @@ public class Utils {
 
     }
 
+    public static void mkdirP(String filePath) {
+        File f = new File(filePath);
+        if( !f.exists() ) {
+            f.mkdirs();
+        }
+    }
+
     public static List<String> getFileContent(String filePath) {
         LOG.debug("Loading values file: " + filePath);
         List<String> lines = new ArrayList<>();
@@ -35,6 +42,14 @@ public class Utils {
     public static Chart loadChart(String chartFilePath) throws FileNotFoundException {
         Yaml yaml = new Yaml();
         return  yaml.loadAs(new FileInputStream(chartFilePath), Chart.class);
+    }
+
+    public static void saveDocToFile(String docs, String filePath, String fileName) throws IOException {
+        mkdirP(filePath);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath+fileName))) {
+            writer.write(docs);
+            writer.flush();
+        }
     }
 
     /**
@@ -66,6 +81,5 @@ public class Utils {
         }
         return params;
     }
-
 
 }
