@@ -16,7 +16,7 @@
                 <version>0.0.1-SNAPSHOT</version>
                 <configuration>
                     <helmSourceDir>./src/helm/</helmSourceDir>
-                    <destinationDir>./target/helm-docs/</destinationDir>
+                    <destinationDir>../generated-sample-docs/</destinationDir>
                     <format>html</format>
                     <generateDependencyDocs>true</generateDependencyDocs>
                 </configuration>
