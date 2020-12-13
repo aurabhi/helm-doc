@@ -1,7 +1,9 @@
 # helm-doc
-A maven plugin to generate docs for helm charts. Supports generating docs of subcharts optionally. The docs are generated in **html** format. Planning to support **markdown** and other formats. 
+A maven plugin to generate docs for helm charts. Supports generating docs of subcharts optionally.
 
 As there are no comment preserving yaml parsers, the plugin just goes through all the yaml comments (**#**) and builds the docs from them. 
+
+The docs are generated in **html** format. The generated html files use [Bulma](https://bulma.io/) css.
 
 ### Sample POM 
 ```xml
@@ -42,7 +44,3 @@ As there are no comment preserving yaml parsers, the plugin just goes through al
 * Embedd helm chart icon(**V3**) into the generated docs.
 * Make a nice icon. 
 
-
-| <a href="https://bulma.io">
-<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
-</a> | <a href="https://freemarker.apache.org/"><img src="https://freemarker.apache.org/logo.png" width="128" height="24"></a> |

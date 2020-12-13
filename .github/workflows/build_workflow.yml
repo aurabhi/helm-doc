@@ -58,7 +58,7 @@ jobs:
 
         - name : Create staging dir and copy artifacts
           working-directory: ./helm-doc-maven-plugin
-          run: pwd && mkdir ../staging && cp ./target/helm-doc-maven-plugin-*.jar ../staging && ls -ltr ../staging
+          run: pwd && mkdir ../staging && cp ./target/helm-doc-maven-plugin-*.jar ../staging && cp -rf ../generated-sample-docs  ../staging && ls -ltr ../staging
 
         - uses: actions/upload-artifact@v2
           with:
