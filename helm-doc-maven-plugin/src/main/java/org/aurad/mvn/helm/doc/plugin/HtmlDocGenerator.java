@@ -34,6 +34,7 @@ public class HtmlDocGenerator implements DocGenerator{
         templateData.put("parentHelm", parent);
         templateData.put("chart", helmDoc.getChart());
         templateData.put("params", helmDoc.getValuesParameters());
+        templateData.put("srcList", helmDoc.getSource());
         templateData.put("isDep", isDependency);
 
         try (StringWriter out = new StringWriter()) {

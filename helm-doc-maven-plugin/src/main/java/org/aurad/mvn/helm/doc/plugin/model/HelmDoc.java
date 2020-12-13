@@ -8,6 +8,8 @@ public class HelmDoc {
 
     List<ValuesParameter> valuesParameters;
 
+    List<String> source;
+
     public Chart getChart() {
         return chart;
     }
@@ -22,5 +24,13 @@ public class HelmDoc {
 
     public void setValuesParameters(List<ValuesParameter> valuesParameters) {
         this.valuesParameters = valuesParameters;
+    }
+
+    public List<String> getSource() {
+        return source;
+    }
+
+    public void setSource(List<String> source) {
+        this.source = source;
     }
 }

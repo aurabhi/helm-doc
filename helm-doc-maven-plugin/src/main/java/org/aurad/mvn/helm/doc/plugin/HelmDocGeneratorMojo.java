@@ -93,6 +93,7 @@ public class HelmDocGeneratorMojo  extends AbstractMojo {
             HelmDoc helmDoc = new HelmDoc();
             helmDoc.setChart(chart);
             helmDoc.setValuesParameters(valuesParameters);
+            helmDoc.setSource(Utils.getFileContent(chartDir + "/" + VALUES_FILE));
 
             String docs = docGenerator.generate(helmDoc, rootHelm, isDepedency, parent);
             String docDestination = isDepedency ? this.destinationDir + "dependencies/" : this.destinationDir;

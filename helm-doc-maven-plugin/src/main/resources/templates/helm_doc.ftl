@@ -1,189 +1,327 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>${chart.name} - Helm Docs</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-        <style>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>${chart.name} - Helm Docs</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <!-- Bulma Version 0.9.0-->
+    <link rel='stylesheet' href='https://unpkg.com/bulma@0.9.0/css/bulma.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+    <link rel='stylesheet' href='https://kingsora.github.io/OverlayScrollbars/etc/os-theme-thin-dark.css'>
+    <link href="https://myCDN.com/prism@v1.x/themes/prism.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+      body,
+      html {
+        background: #f2f2f2;
+      }
 
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="is-primary">
-                <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" href="#">
-                            <img src="data:image/png;base64,
-                            iVBORw0KGgoAAAANSUhEUgAAAHAAAAA4CAYAAAAl63xKAAAABHNCSVQICAgIfAhkiAAAH2lJREFU
-                            eJztnNePZvd53z+/cspbp/fZXshdLstKtETSlGzJjiTYsQM7QBz4LgECXwS+yHX+iVwFCJCLXARI
-                            ECAxnMRyIEcOJIvq7HV3ub1Nn3n7Kb+Si3Ped2Y4s8tdieuACB+A4O6+5/zaU35P+T5HeO89X9Dn
-                            luT/6wV8Qb8efcHAzzl9wcDPOX3BwM85fcHAzznpz3xE7/DewPv/BgAz/TX0/FcR4snKynd/cocv
-                            napzeyPDWMNzp2epVYrtvfbuOv1+l/PHp9hsZ8xPVpieqCElfO/nd1maDBivK7TSGGsAEELgvcd7
-                            jxSC1a0+Gx3Hi+dmmWhW+P7PPmZxusHEWI2fvnOL559a5PjiGEKIQ9f3169d57lTE2it8N5xd73P
-                            /a2U331xkTgOR8/91Ws3OTZb4ch8E4Sg2+3x0c1tjs6PcebY9IFxP3sGAt5Z8A7hPa6/irMWpZ8s
-                            AyuRYn52nE7S4vKtLvfW2pw5Non34D3MjscszTWJKylXbm7RqEVU4mL7c9M1psaqxdo9gAdE+XcH
-                            gENx9f46l29u8eVzC+RUadYrTDRCMqu4fW+do/NNlDqcgWP1iIXZMaQsfp8cr3P5+5e5s9rm5JGp
-                            0b/vdFK+9dVlAq0AiAJBbaXFB1dX/p4YOJJAMTyNJ0ree4QQDBILgDE5znukVMMn8M5jbcEIJSXW
-                            WjzF2pwr1jrUuNy4QvMotdAVz213UoJA41A4D8YJnPNY58EbnH34UTrr9x1HGCia43Va3QTn3Gi9
-                            9Vo4Yl5Bgtx6pAoOHfeJaGAxrYfyP8/uQT8pGvELQW4cxtrR34UUSFlYAC2LwxuJmQQpC+btdHPe
-                            +GidSuDoZ8W7WTpASkFmPGeWx7i11kNJgffgvMd5QUAG7D30g5Q7i/Oe3ZnhhRMTvHV5jZP9lIlm
-                            YQGePTFx4F1rPSZ3h+/7kU7noTRk1JAE3ju8CEGE5RRPlnlQaBaA0iEIPTJ9QwpKEy6FJwyD0XoC
-                            LUd/HiSG3DrutwRBVMXLkLg2gVM1gqjOpdttTi9PlmbS45zFe491jiBQD92jJTxgkBZmauRWsN3K
-                            AMhyy+JM7ZC9QZb1Dx3319TA4pLHWwbdLcg7uKyDtAN08wUEIKQivf86aVgHXUNXJgjjBojhwX02
-                            jNWi0DitJM5Z5J7DtN7vM+3WFAdPObt3hYDlWcZ2q0u9VuG3np966HyhloRBiBACqSTWlWfxgP0o
-                            cj7JXykF9apgo9Xl5JFx2r2M8Xq07xnvPZmx6Khy+L4fusoHksfkBpdtQ7aDdH10v4NSAqEk3uR4
-                            2yvvkQaxMgi6uLSFT1fIozpO1FC1WYKo8ast4ROUZIX3qCTkxpBbX3qRIL0nCoqtOi8w1uHKuy3L
-                            C9MGYG2OsD1CIUe/7z30vRompUQpWV4VmkDrh2pgpP2hrF2cbnJ/vY0xlk7PMDUWH3jGWE9uDh/7
-                            V2KgyXrYzk0CEvygX/psDmc8GMCDTNZASpyq4Qx4YxBSgrdI30KKNi7fJJ98jkBHHBDPx6ShCZWk
-                            1COIgkLDhQDrDYEuJVhAaiXD41RSjKZWSlKtNTk2v+stPvAMrMdaixSKfj40nw/WwECrQ38aq1e4
-                            vdrGOUurO0CITwi0L/a2e6fvp8dmYN67jxzcI8z65LktFi4YeZxCFneeqx2j8O4UCIEs70mPx1sL
-                            HkRu8DsfkTeOEcTjD9z8o9AwzAx0wHorJ7m8yjsfb2CdZaOV85Wn5wCQAnLjRyZUSoWWEu89cVxl
-                            kG1xfTXh8t2rBEoQBZITi+McXxrfJ2NaDz1XkBI6/eThTveel7fbA5RUNOshjWphfq11bHVzAAap
-                            wXtPNQ4QEgIteJA87WOgsxnJys/BpuiZFwgrUwylytkUs/Mxor9ReF8UJkWFGuclJpyCcIwgbiK8
-                            QXz0b8FZssY55PK3UUqS9LcQ2RZBvoMATJYjBjuQ7OCqNXI1TdA8Vki/L2bOOjcgaRFOX0DIh8lb
-                            scP5mQb/7A8u7DNnez1gJUEIjyviBwJpcOXvc1MV/uQfnNk36iC1fP+Xd/jwdpvfe/noaCwlJVop
-                            pFLEAehP0di9a7l8u8elmxv8ye+coVmPOL08wf967SrnTi3gnOc/f+9DvvTUHM+fnUUIQRgEVMPB
-                            pzMwufcTqu2fgYB85y2Sma8TTD+D0jHZ9jV0solzrjRNAhnHGDmGqywSV5vlCgtTOrrQfeHIoEIq
-                            zUVgkaS3gUruo2jj8hw82F6PoOYxvQBdnQfbw6z+jLD7Pk4FmKBOMHH6U9hXHFBvkJHnhigMCkYJ
-                            Qb0ajX53zhWODSBsOvJYvfcMkoxB5jC5x1iHRaCDkCzfr14uNxhjCIOYxDw8hIDCuSrmAOUTFqdr
-                            vHd1jS+fX2BmosL/frPDd149za37baIwIhwmPnxh4ofvP5SB3nSL/6cW7XPU5g9w/Stk4xcJ0o1d
-                            5imJrE5go3mCeLJg0F77X0q7YOj97ZfOuDaNCevYwSqyfRNfaoMbJIj8HqZ7B9l+m2CwifcgIg8+
-                            P3QDQ83yojCDnX7OD964w6Dfw1hBpC2WkG+/fJKxRuEguD22buAqUL670824dH2NWDs22znWOhyS
-                            MI6xdj8DkzzFuhgpJZVQkTh5YJ97Kct37zCP4ORigx++vcKXzi0wVg/583/yNJU44vKdFU4t1vc8
-                            60mz/IHmeR8DK4uvkN9pocRdRJIj8gwp2jDYwPtiAQXzphHNkwRyr8v7icWLQ/5t78RBjNfL5L17
-                            SJHjrQPvIB+gXIpM2wgHQgnysQuoxtEHjgUgKYQryw2BlrSdplGRVOMIqWN6/YyxRlxahl1pdgi0
-                            UoAgzy2DHLY6ljNLDdLMoLXGWs94GWgPBcb4EK2L7EhcqaHIHro+JYfWSKDCCu1uj8zCZmvA9HiF
-                            p46OAdBLcs4dm6DVTYHCKhjr6GePoIEymsAf/SPMxhsE268XKaLqUpHbtAOQMTJqQv04QkU8ktMx
-                            NFWHeJlCKOT4WUTrY7xL8N4inMGqCsRHkNltTDxNsPStT51mstQum+f0O9ssjMV885WnAfjxu6uY
-                            UsvxoASIcu1CFH8SAjySna6hEkWcOT730PkC36PbFTBTI9ASm9lR2HLYXh1idFxSKNa2E5amIm6v
-                            9Jger4zeOTlfRyk1shICCLTG+Uf0QpWOUQuvYCfOYjc/QHqByNvIdAUXH4Ht97DO4CaeQev4Ae6/
-                            x1uDcw5nM5Q/JA00DK6330OkaxDMI/MWItvEx8uI5hFydxQ59exDD3JIeW5Gw+ZO4mRQ3neFxpWp
-                            UKSSSCkKjQBCLUYeqbWWJMkI9vzbXtrnGOFHFZY0ywikLBPnBwXWe49QFZwDJT2aAf3McfGpeW7c
-                            3cIYh9ZF7Dk9XuP63W3mJsLhpBjnCdSjhhFlPCOjSUw4jsi7OBnjo3mcjFGdG2izgelcIp/7GkH9
-                            KMOMTBFSSJLr36O/ehfvPLrTheZZ9MLFwkRCcee4DLPxDnrzZ2AsohnhdANCCTLAW4ePZ5H68AzE
-                            JykzdnRY1goEu3GgxKLLZKlWAmEHhVWhqDbY4R3sPFGoOTpb/dTUX7AnfoyVJY6CYi550NQJITAm
-                            x1pLoDVZltNPHc4k1CuanW7KZDOi289Y3+nTT3KE3A3olVR0++bQdTzALxck3S101i68OBngZIjS
-                            OQgFgz5Bdgtv/gLTeA418yLIEC80zkP75s8R1iIAO2ixs/IBlYWLeJcDnmywDet/R9i/ic8NQjiU
-                            X8EHU7hSkp3zKJHgXQbq08PVYbUBBHaPlwmUYYIaHWanl5CkOWNAXmZivPc0agGRNtxf2+LuliWQ
-                            Bms9mYW1nZxvPD/NiaUmQgjiwJHnhWPVN5J2r8P/fM0Umi0EscqoVwQXzx0lChX91I7ClTiOyUzG
-                            1k6X2elJOr2ciUZMu2e4fLvN86enSPOiKiKlpFKpYd3W4zAQXLKOChQ2sXhAaY0NZxH1SUR/q3A6
-                            ej1U8lPy7Q9JMoVuLKHnvoQMK1Qq88XB5n1y78hW3sCu/QJ8TiAzNBk+dxCFuOoCfux5rBPofBuf
-                            m8IWDjqYsI0Kqp/KwKTM1ltnMQac3eO17okDC6fAFmUgwPmi1COEYKwe8e2XT2OsxyOw1uLKPOmd
-                            tQ6/vLSJwHB8aRKzx6K9+uwMWzs9hJAopcp71XHpdou3Lm/w3OmpIr1YzqmVxJsBrT4cixXvXu2w
-                            3s5JBx3iSNOsRaxv90YCp3TAWO0xyknG5Ki8Dd6WplFCXEPVF/GVP8Rv/RLZ+QiRGZwx9FY/xJgM
-                            v/EedD5mYnqhCJi9w+kxQkLs9f9Kb3sdhCSq1mk0pxChIpl8mXDyWXTUIG+v4tPt3YVIkK73qcwD
-                            MEMNFGBlRBxG5QEU99UwzpayuAOH5k/4bF/lQmuFHp3KbnwXaUGgBHfWBizPe7LcoMu63USzwkTz
-                            oKnPfcjrH9xlfrJKrHKG1jWOAuJIYZxmaqzCb5wP+N5rl5DkvPjsqdIUi3K9glArovBwBorDgL1Z
-                            b5UguYHpJcWmAk0WTBNMntm18d6TtW6Rf/Qf6G/fR0jN2MJTyDKv2d1eQdUWCBqLCFVBSEW2c53+
-                            nZ8hcejZZ6k/989RQ0fIO5wz2PYVRH8Tb12R5SckXHrp4dwDrtza4fV3r2KsIYrHCQPPP/rG02V8
-                            Z3jn0gp317ZwDqoVzcvPLrMwO8bd1TZvXlplp2vRWhJHAaHyIAOSQRclFUoKVBASBQprM373qyfY
-                            ag/44OMV7q1uFfGiCIniGpU4RCsIFAySnDAMOXt0EiEF719dZXunw/TUJGmacXwu4rmnlw/sJcsd
-                            N+9uc3+jjbc5tXqdm6td/vE3zx549qAGek+W9AlCDV2PF0AU4Aj3lWgKR6cOuk6kwMeNghlAng7Y
-                            Wb1OJbyNbi5QW34VcOjaHFGtgcy7iImnR8wuREkghMQbEKWp8c4j5OGX9yfpzNFxrt+uk+cZYSS4
-                            cHqxHFYw0Qj4zReWeP1DTS/JGK+HTI0XdbeluSZRHHDlxjaeoj5YCQVRFFEJasWavMRLjbGeqbGi
-                            ljg1VuXiuSOEqqxooLBe0qiG1Cuq1CCPcYL5qZgoVFTjJVY32rS7KcfnJzi5NHboXsJAcuroBEJC
-                            u9PF2oxnTkwe+uyhGtjfvEZVbZK1eggBQbNOKueImkcODGB6q6TXvovKNghrE0gBG/dvkrTuESgF
-                            UtE88dsEtTm8d6St6+ilrxNPnTk4lsnpr1+ikm8UphtwWhMtfe2RmPj/Ix0S3g+rBrv3hMcXtz37
-                            ee29B6Fw8QzGF4GqFwKp1J6xROG5lpV76XLo3sIk23ySxPCdMtf6q9Cv2+oxRKJ9XuggAz0gVFGY
-                            9QAC4cHkGfsyL97i8h7u5l9hr/81prcBtigVNcZni8DaG8Lx46h4HOcd3qYkmx9jrv0lg6vf/QTs
-                            wSMExEqOZpFKjTImj0qfZPyjMGTv7+IxhOdxGf0kBOPQQD6s1PC9+0W9C48fJOgwx3tXZh883hnc
-                            9oekGx+QOwf9FiYfoIIKSgfMHH8WVTuCrhUpKSElyc5NbNql5z213k1c93aZ4xxmPjwiAJ8LsL5Q
-                            XhkeWOJh1O2ntLsZAkegFZVKVFoQgVaCMHhwxcDYogqx0UrZabXRSnNkcZzxenQoM4eM6PZzVtbb
-                            6CAiDgTNRkQl0ocWg733ZLmjnxrWtwbkxhAFkkatwuRYNMLsPC4dGkbkTuHSfFSEtcYidIrNU5RW
-                            2NZVfPsd9M4NlJQ4axEIept3aM6fBKmp1sdwCry3yCDCdFdIVt/Be4cUkljkiDt/iTnyR6jqIkIq
-                            nMtxWQ85FFSlMDLmcAd6P7321m3Gqxpr86JIG9WK1FjuUMJTr1c5vTxGvbJ/y1fvdLlxf4dKqJho
-                            RkyM1fFesLrRZW07HSWZ99J6K+Pq7RZJljM3EdHvpWykA7J7Bczi2dMzI1DxkD640ebuWodqJBmr
-                            R4RhiHGOt6+sg9RcPDvBzPijZZ320qEMjCpjpK0ArUsAECCVA59hbv8tun8Ln/bBeeK4hhpL6LT7
-                            SNuh114nbCwQaYlyXVySYbIqycqbVHWOlYpKcxKlAki6yNXvYmrn0bMvkScdApuNiq3eOmRU42FQ
-                            hSE16zFffW55pB3DbI51rnDLVzr8zS/u8ztfnqdZBsVXbrX48HaPl5+ZYbIRjuCFQ6X7bz+8hbWe
-                            8yfGR/NsthJ++u4GXz0/zVg9ICgr80IUmnzp5g5vXFrn5Qtz6D1adXOlx8sXZhmrBXvypXB6ucnq
-                            dsZ/+v4d/vR3lpkeP4iJeRgdcgcW6RsXToLedUZE0sNtvEHQvQKDXpHd0Apfn4Cj3yGaOk4w/yLh
-                            M39GZ2eL1srHtO5fpnP75zibUv3qv8bMvIybewk39yLUa4Wz0toi2P4p2cf/ET24PcKQgsALgdf1
-                            T2UeMMqsCFHgQjPjMNajlaJeDbhwaoqTizU+uF6kpLbaKX/52iq/99Ii02MhSgmcc+RmN/vyh68s
-                            84sPVkmz3VBmZSPh+VNjzE3FRTBuXQkGLkKQ8ycmSHLB/Y1k9M76Vp9vf2WB8XoRghjrysSDQCnB
-                            0kzMP/3GMj99f/2xmAcPTGZDUJ3G7qwXZ2cNzluUNPjUgJb4sIZtPg3jFwjjWfTCbyOlRKiAJAhI
-                            torFxFGAkIogqhJc+FOGRRLbuQI776J3ruD7KUE1w2UDvMmKArEQENYJ4kdDrdkShTZIDD99/z6B
-                            DhBSIrE8V5q0Y/N1Xnt7FWMcV263+NaLk6WMCm6v9rm9ukMocnIfcnR+jKXZKueOj3PlVotzJyYA
-                            QbvbY3FmanSnXb21wWbHUasEvHB2GiHg/NE6H97cYm4yIAg0b368ybe+UoRgl2+1+ejGJs3I4lWN
-                            F56aYrweMDsZE4ePD4A+oIHeO7wZYLffQ/SvF5rm+shsBecCsvnfxp//V6in/xy1+Luo6gJCKlQQ
-                            IVQAztG8+GfMHT/L/LHTVE5/B33yj0vhkIgSD6qbZ9FH/xj39L/ELnwd1zgHNkPma0X13VvE9nvY
-                            1rWHem/D39K8KOg671FCYJzg1efmOLXY5EfvFA7ZWC3k5GKVG3e3yDLD3FRR+d7p5nx4u03uJHG1
-                            wUvPzvPOtTYAx+aqvH/lLm9f2cQ6Rzd1NGqFc3PtzharHcPXLi4SKMHbH90FYHIsJumu83fvbbLd
-                            SbFJB4CNVsaN1QG1OOTksXm+8eICb17aIM2KK+PEfI1L1zYemXnwCQ20JsFtvYtovUNlsIH3Aivq
-                            +GACrxogBDqsgU1AP8A7lIBlVK7Buwf2SHgPwvURuoJL+yA1PlwAqRC9G6jkDjK5j9UhqnkCIQ+6
-                            M0NpjbTcgzTbLesIIQh2k5tkucVITWG+SjS3FGjhEM5ycmlqdKcB6EAilaffawOTRdWjNPHGSZ4Z
-                            NpxIwXor5da9TdIcLBFZb4c0qeDLuuFEPaDb63L+2BTLsyUCW0C7l5IbSW+Q0W23gJkHsOvw4949
-                            0NUfojZ/hOqu4nILWGR2D5TaTXllbWhfwySdT8b15SDs4mD2IJUfWCDt3MSl/eIpX8R+3vVQdgXh
-                            QZgcsfI3ZNtXHrqROBoCawXWy9FyrbUoO0yIF61KjiK/OXT3jbXg8nKdu9sA0FKidAVKgdQiH70X
-                            RRHl1cuZIxNMjUW8e2WFW/e3OHd6mX5atqeVNU2lBF+/uMSVOx36SQEdnB3TvHVlncs3t+kN8sfG
-                            x+5joFp/E5EmhXMRKFxjDjPzKqZ2FFWrIKTEGQtZB9ofkPdXSqzMA0zcw3oFTEqydQWTDEpYqS/G
-                            D2Lc5Avk41/BVhp4KZFpB9+7y/6j3U+5KcyQcZDmvkRMF0sI9jS+CCmRpcc4RFk45wqg7x44xDCZ
-                            pLVClxAHATT2pG8L2HsxTxxKvnx+mfHJGbI858Nr91mYm2J2qsH5E1NkZblrqhlzYqnJT95bJc0c
-                            F07PcmQ64t5GjzTNOXvqYLryYbTPhJqFb0LnbYTQ+OpZxOQ5gnCcAMhaFhWsQppgrUO4FOlukCfb
-                            yMoMPmgSBLs4mWG71l5MjPcOZ1J83oLBGkHexfrCG8ODCCJ84yhRZRZRn8X0TuN33sclq8jxYe70
-                            cKEYQuGlKBgyKD1HuUfTiudAYHFDlQecdUULGrtYmbw8cCklSoIUAus8jt1MjRTqQND+6nNzeD+7
-                            zxE5Ol/nb36xwisXpqlVNOePN4k0/OCtFZ460uSpE7McX54BPJXo8bDW+57WMxdx46cLOEJQL1HW
-                            RVZd15dITYr290fM8VmKtBtI+mRtgYuncLpOFFUKgNLQwUgHuLyNG2yhfQ/lU0ySlgnr8kCUwjWO
-                            oSuzI6yJqi3hKzNIlyH0wa6dfWvXQ8EBJTwBBarLWkeS7cItEEWhVu/BWnrncR6kDEby4dxu6CCl
-                            RAhTAozUvjklB7Eqh3mRx+dr/O0b9/i9l5ZQSnHm6BhzU1V++eE61glOLdcPvPMotI+BQmpUNMHB
-                            wFmgdEg4fhppd3BZuhswW4fr9wmER1qDGdyBrsY1nikQYLqGaL1HqMBrhe2nmLLdrEgQaAgi8spR
-                            4urcPoenwKCGoEIepHlDSvf0zykpCeWwIi8xsjYaL1CSgTE470YFVkRxV+pgN4ifquQjC2JMjg3D
-                            oplFapzzRc9gllIJHiVPBKeX6yjp+S//5ya///IRGtWARjXgK+en+dE76zQbITNjj5Y23EsPSMAd
-                            flhaa0ztGERN5L5unAL9ZXoJZDk+T0EEeBnjRYC0hjzLMf0UN6x2eI/UGhtPYRunieqz5dSfnPsg
-                            MPgwGja3WFcw0w1lUzBCpBXJc49WAufFCKzrPaRDNHkpP7kVDG8A6yHxAR5oDfzIXCsp93QCP5yE
-                            EJxcavLNiwv88qMNrt/rIgTUKgGvXJjhB6/f4e7ao6EP9tJjZ1DD2jxi4hx5dRmiKjoKi9hxqDhS
-                            Fi3OyQoyuYv3ZtTOXCBNir4CFUcYVUGPnyasTPza5aPcliCgsu9hYAtpVlLuGVvQG2QEgUTLXeig
-                            1JrU6hEWBihd/yKciAKNKRlsjBvJmFRq3wl2eylXbqxx7dY6g2Q/krzTS0kzy9xUhRefnub9Gy1e
-                            v7SFEIJmPeQ7Ly3z3rWDJbZPo8dvLxMCFcSo8ePk2Sx5uopnkyAAn6ZFrwNgK0vlAex2rqowRKiA
-                            zCp8PENQnXtg7/djb0SWd6n3BHqXsXs/riCEKIPwok8+KO/AQGsqkSZNsxLdJkuNLkx9FCpyW9iB
-                            it6947wzOFOMcXe1zfffWGFhqsDivHV1m9//zZMEWvG3v7hBmgzo9FLOnV7m2dNT/MNXFvn3/+MK
-                            jYrmzJEm9WqIEIdjPx+671/9yCAIqxCewNePjxwb4SzO9FGX/x3CObLGOVj+FqpMbQkP0a+obYfR
-                            3lbpIQxPKUlS+iBSwJHp4TYLkK9zjnpVk1kLaCqhAJcwP1kbpX9zV3ivzjm8d0X3kRD4PXegsR5d
-                            mu717R7nlyNefPYYAO9fXefKjTWmJhpgM37/t85zb63DWx9v0Ot2+fKFo/yLPzzLf//hVY7N14lC
-                            yXOnpri71mNp9uEO2176TL79MTxEIYo4S0iFd66oJY66mWThon+GzNtLQ3fee49SkhNzMdvtAe9f
-                            2yaOdjP8WZZgrKdRDRn0i4RzFCpmx6t4ClP3o7dXaPUKDW51c/qDDOvLoN85XInAnmhECOW5ca/D
-                            1ZWEZ84WACXnHCZPC0iIFxhRmPOZyRo77YSJ8TrOe37yzj3G6xFl8zBpZrEmfbx9/6oH9iAaMUv4
-                            Io0m4El/5AeGnbaCSqRZnKrgneHuyjZHZuscnW/gvWd1K6GXeuqxYHq8ws8/2hw5Mi89u0C9orh8
-                            a4taRfMHv1kw49Zql1q9TiUstLkSalq9opFldrJCq91HCsc3v7xIJSrU9+5an9SGKKVQwtOsFQIU
-                            aMm3XjoOQvDBtS3q1YivXVxClg2m7W7CWOPTMbB76Ql8qWnosFDEk6OMyJPRvNG05f+1lpw9NjVq
-                            vRjOba3jo1stlqerLM83CLTg6GyNH7+7yqvPF6iB8yenR1sQAi7f6nB3M+HUQp1qHKCUZGm2wbvX
-                            dvjmlwrg8skjk/vShL2B4cObO/zG+RneurTGiSPTvFCP6fZz6tWAqbGYyWZcIM/3fBToh2+vMj9R
-                            oVZ5vFDis1cNIYpOWqHwzTqytlDEek+IRtWIzJHlljQzo+/EZLmj20+5cb/Ld398g2qkuLPeIyz7
-                            5188P4eQktfevs8gLeqAw0Jwb2B4/dIqv/XCHGs7KXNTRT7z6HydQMFf/PA2nV5GlhuMKebaaiX8
-                            1Y9vsjRT5c1L6yzP1go4YSXgZ++v0O4WTtLwXs1yS5Ja3v14E+8soZYP/NLTg+hQWOFnQf37v0QF
-                            MeHEmbIV7cnSpRtbbGwWbngQ6PKrSpq1zRadgWd+qonAEUUBX3lmdvRebhzX77ZZ2+4RKk8YBDjv
-                            6CWOaiVkfSfhwolJluf2OxYf3djh7lob6wxjFYVUGo+kWglp9zMqYcDFp3Y/jbW21WennZCkCcY4
-                            nC+QAlEUUolDvPf0B/AbFx69EgFPkIFP+stMnyTnHN/7yZUCmJy7Ar5eqZHnKUlmGavHnFqeZGY8
-                            3gd1GFKSGj68tsqd1Tazk2PsdLoszU1ycnmcanwY/tmT55bv/t0VOgNLNXR4VWFyvMKFU5PMjFUO
-                            7N85z8pGj3eu3CcQFuMcaQ5T4w2WZmsszo49FHx1GD0xBn5Bfz/0xfdCP+f0BQM/5/QFAz/n9H8B
-                            75tsI6NSdSYAAAAASUVORK5CYII=">
-                    </a>
+      pre,
+      .message {
+        max-width: 960px;
+      }
+
+      li {margin: 10px}
+
+      .hero.is-primary {
+      background: linear-gradient(to top right, #524ad0 10%, #D099FA);
+      }
+
+      .box {
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .box span.icon {
+        float: right;
+        font-size: 1.7em;
+        padding: 2rem 2rem 0 0;
+      }
+
+      .is-large.fab {
+        font-size: 7em;
+      }
+
+      .is-large.fas {
+        font-size: 5em;
+        margin-left: 0.2em;
+      }
+
+      .media-content {overflow: hidden;}
+
+      .menu-list li a:hover {
+        background: #d9d9d9;
+      }
+
+      .token.number {
+        display: inline;
+        padding: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        text-align: inherit;
+        vertical-align: inherit;
+        border-radius: inherit;
+        font-weight: inherit;
+        white-space: inherit;
+        background: inherit;
+        margin: inherit;
+      }
+      .footer {background-color: white;}
+
+      code[class*='language-'],
+      pre[class*='language-'] {
+        color: rgb(0, 0, 0);
+      }
+
+
+
+      code[class*='language-yaml'],
+      pre[class*='language-yaml'] {
+        color: rgb(0, 0, 0);
+        font-family: 'Operator Mono', 'Roboto Mono', Menlo, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+          monospace;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 2;
+        font-size: 1rem;
+        -webkit-overflow-scrolling: touch;
+        margin: 0;
+
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+
+      pre[class*='language-']::-moz-selection,
+      pre[class*='language-'] ::-moz-selection,
+      code[class*='language-']::-moz-selection,
+      code[class*='language-'] ::-moz-selection {
+        text-shadow: none;
+        background: #131824;
+      }
+
+      pre[class*='language-']::selection,
+      pre[class*='language-'] ::selection,
+      code[class*='language-']::selection,
+      code[class*='language-'] ::selection {
+        text-shadow: none;
+        background: #131824;
+      }
+
+      @media print {
+        code[class*='language-'],
+        pre[class*='language-'] {
+          text-shadow: none;
+        }
+      }
+
+
+      pre[class*='language-'] {
+        overflow: auto;
+        padding: 0.75rem 1.25rem;
+      }
+
+      pre.is-option {
+        margin: 0;
+        padding: 0;
+      }
+
+      :not(pre) > code[class*='language-'],
+      pre[class*='language-'] {
+        background: linear-gradient(-30deg, #273149, #1c273f);
+        border-radius: 0.25rem;
+      }
+
+      :not(pre) > code[class*='language-'] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+      }
+
+      .token.comment,
+      .token.prolog,
+      .token.doctype,
+      .token.cdata {
+        color: #8ca2d3;
+      }
+
+      .token.selector,
+      .token.attr-name {
+        color: #c7f683;
+      }
+
+      .token.punctuation {
+        color: #5ac8e3;
+      }
+
+      .namespace {
+        opacity: 0.7;
+      }
+
+      .token.tag {
+        color: #2cefd8;
+      }
+
+      .token.property,
+      .token.boolean,
+      .token.number,
+      .token.constant,
+      .token.symbol,
+      .token.deleted {
+        color: #85b4ff;
+      }
+
+      .token.string,
+      .language-css .token.string,
+      .token.url,
+      .token.attr-value,
+      .token.char,
+      .token.builtin,
+      .token.inserted {
+        color: #ffd694;
+      }
+
+      .token.operator,
+      .token.entity,
+      .style .token.string {
+        color: #ff9bbe;
+      }
+
+      .token.important,
+      .token.atrule,
+      .token.keyword {
+        color: #b7adff;
+      }
+
+      .token.function {
+        color: #25d0e5;
+      }
+
+      .token.regex,
+      .token.variable {
+        color: #00a8d4;
+      }
+
+      .token.bold {
+        font-weight: bold;
+      }
+      .token.italic {
+        font-style: italic;
+      }
+
+      .token.entity {
+        cursor: help;
+      }
+
+      .tabcontent {
+          display: none;
+          animation: fadeEffect 1s; /* Fading effect takes 1 second */
+      }
+      /* Go from zero to full opacity */
+      @keyframes fadeEffect {
+          from {opacity: 0;}
+          to {opacity: 1;}
+      }
+    </style>
+    <script type="text/javascript">
+      function switchTab(evt, tabTitle) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+          }
+          document.getElementById(tabTitle).style.display = "block";
+          evt.currentTarget.className += " is-active";
+      }
+    </script>
+  </head>
+  <body>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="columns">
+          <div class="column is-12">
+            <div class="container content">
+              <div class="columns">
+                <div class="column is-1-3 is-centered">
+                  <h1 class="title">&nbsp&nbsp&nbsp&nbspHelm</h1>
+                  <i class="is-large fas fa-ship"></i>
+                  <h1 class="title">&nbsp&nbsp&nbsp&nbspDocs</h1>
                 </div>
-            </nav>
-		</div>
-		<div class=" column mt-1 is-full mr-0"><h2 class="title is-2">${chart.name}</h2></div>
-	    <div class="columns mt-1">
-		    <div class="columns is-three-quarters">
-		        <div class="column is-half">
+                <div class="column is-1-3">
+                  <h1 class="title">${chart.name}</h1>
+                  <h3 class="subtitle">
+                    ${chart.version}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-3">
+              <aside class="is-medium menu">
+                <#if isDep>
+                  <i class="fas fa-code"></i> Root<br>
+                  <a href="../${rootHelm}.html" class="is-active"><span class="tag is-white is-medium"> ${rootHelm}</span></a><br>
+                  <br>
+                  <#if rootHelm != parentHelm >
+                    <i class="fas fa-code"></i> Parent<br>
+                    <a href="./${parentHelm}.html" class="is-active"><span class="tag is-white is-medium"> ${parentHelm}</span></a><br>
+                    <br>
+                  </#if>
+                </#if>
+
+                <#if chart.dependencies??>
+                  <p class="menu-label">
+                      Dependencies
+                  </p>
+                  <#list chart.dependencies as dependency>
+                    <ul class="menu-list">
+                      <#if !isDep>
+                          <li><a href="./dependencies/${dependency.name}.html"><span class="tag is-white is-medium">${dependency.name}</span></a></li>
+                      <#else>
+                          <li><a href="./${dependency.name}.html"><span class="tag is-white is-medium">${dependency.name}</span></a><br></li>
+                      </#if>
+                    </ul>
+                  </#list>
+                  <hr>
+                </#if>
+            </aside>
+          </div>
+          <div class="column is-10">
+            <div class="column content is-medium">
+              <h4 id="let" class="title is-3">Details</h4>
+              <div class="columns box">
+                <div class="column is-half">
                     <table class="table is-bordered is-striped is-fullwidth">
-                        <tr>
-                            <th>Version</th>
-                            <td>${chart.version}</td>
-                        </tr>
-                        <tr>
-                            <th>description</th>
-                            <td>${chart.description}</td>
-                        </tr>
-                        <tr>
-                            <th>kubeVersion</th>
-                            <td>${chart.kubeVersion}</td>
-                        </tr>
-                        <tr>
-                            <th>appVersion</th>
-                            <td>${chart.appVersion}</td>
-                        </tr>
+                      <tr>
+                          <th>kubeVersion</th>
+                          <td>${chart.kubeVersion}</td>
+                      </tr>
+                      <tr>
+                          <th>appVersion</th>
+                          <td>${chart.appVersion}</td>
+                      </tr>
+                      <tr>
+                          <th>description</th>
+                          <td>${chart.description}</td>
+                      </tr>
                     </table>
                 </div>
                 <div class="column is-half is-fullwidth">
@@ -202,9 +340,11 @@
                         <tr>
                             <th>Sources</th>
                             <td>
-                                <#list chart.sources as source>
-                                    <ul> <a href='${source}'>${source}</a> </ul>
-                                </#list>
+                                <ul>
+                                    <#list chart.sources as source>
+                                        <li> <a href='${source}'>${source}</a> </li>
+                                    </#list>
+                                </ul>
                             </td>
                         </tr>
                         </#if>
@@ -220,52 +360,86 @@
                         </#if>
                     </table>
                 </div>
-             </div>
-            <div class="column">
-                <#if isDep>
-                   <h5 class="title is-6">Root: <a href="../${rootHelm}.html"><span class="tag is-primary is-normal">${rootHelm}</span></a></h2>
-                   <#if rootHelm != parentHelm >
-                    <h5 class="title is-6">Parent: <a href="./${parentHelm}.html"><span class="tag is-primary is-normal">${parentHelm}</span></a></h2>
-                   </#if>
-                </#if>
-                <#if chart.dependencies??>
-                    <h2 class="title is-2">Dependencies</h2>
-                    <#list chart.dependencies as dependency>
-                        <#if !isDep>
-                            <a href="./dependencies/${dependency.name}.html"><span class="tag is-primary is-normal">${dependency.name}</span></a>
-                        <#else>
-                            <a href="./${dependency.name}.html"><span class="tag is-primary is-normal">${dependency.name}</span></a>
-                        </#if>
-                    </#list>
-                    <hr>
-                </#if>
             </div>
+
+            <div class="tabs is-left is-medium">
+              <ul>
+                <li id="" class="tablinks is-active">
+                  <a onClick="switchTab(event, 'Parameters')">
+                  <span class="icon is-small"><i class="fa fa-table"></i></span>
+                  <span>Parameters</span>
+                </a>
+                </li>
+                <li class="tablinks">
+                  <a onClick="switchTab(event, 'Source')">
+                  <span class="icon is-small"><i class="fa fa-code"></i></span>
+                  <span>Source</span>
+                </a>
+                </li>
+              </ul>
+            </div>
+            <div id="Parameters" class="columns box content tabcontent">
+              <div class="column content table-container">
+                <table class="table is-bordered is-striped is-fullwidth">
+                  <colgroup>
+                     <col span="1" style="width: 20%;">
+                     <col span="1" style="width: 20%;">
+                     <col span="1" style="width: 60%;">
+                  </colgroup>
+                  <thead>
+                      <tr class="th is-selected">
+                          <th>Param</th>
+                          <th>Default Value</th>
+                          <th>Description</th>
+                      </tr>
+                  </thead>
+                  <#list params as param>
+                          <tr>
+                              <td>${param.name}</td>
+                              <td>${param.value}</td>
+                              <td>${param.docs}</td>
+                          </tr>
+                  </#list>
+                </table>
+              </div>
+          </div>
+          <div id="Source" class="columns box content tabcontent">
+            <pre class="">
+                <code class="language-yaml">
+<#if srcList??>
+  <#list srcList as line>
+  ${line}
+  </#list>
+</#if>
+                </code>
+              </pre>
+          </div>
         </div>
-        <div>
-            <br>
-        </div>
-        <div>
-            <table class="table is-bordered is-striped">
-                <colgroup>
-                   <col span="1" style="width: 20%;">
-                   <col span="1" style="width: 20%;">
-                   <col span="1" style="width: 60%;">
-                </colgroup>
-                <thead>
-                    <tr class="th is-selected">
-                        <th>Param</th>
-                        <th>Default Value</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <#list params as param>
-                        <tr>
-                            <td>${param.name}</td>
-                            <td>${param.value}</td>
-                            <td>${param.docs}</td>
-                        </tr>
-                </#list>
-            </table>
-        </div>
-    </body>
+      </div>
+</section>
+<footer class="footer">
+
+</footer>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
+
+<script>
+  window.addEventListener('resize', () => {
+  const divs = document.querySelectorAll(".menu-list");
+  if (window.innerWidth < 768){
+    divs.forEach(div => div.classList.add("tags"));
+  }
+  else {
+    divs.forEach(div => div.classList.remove("tags"));
+  }
+});
+
+  document.addEventListener("DOMContentLoaded", function() {
+  //The first argument are the elements to which the plugin shall be initialized
+  //The second argument has to be at least a empty object or a object with your desired options
+  OverlayScrollbars(document.querySelectorAll("body"), { });
+});
+
+</script>
+</body>
 </html>
