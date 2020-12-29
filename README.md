@@ -1,6 +1,6 @@
-# helm-doc
+# helm-doc | ![Build](https://github.com/aurabhi/helm-doc/workflows/Maven%20CI/CD/badge.svg) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aurabhi/helm-doc/blob/main/LICENSE) 
 
-![Build](https://github.com/aurabhi/helm-doc/workflows/Maven%20CI/CD/badge.svg)
+
 
 A maven plugin to generate docs for helm charts. Supports generating docs of subcharts optionally.
 
