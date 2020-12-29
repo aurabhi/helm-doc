@@ -31,7 +31,9 @@ The docs are generated in **html** format. The generated html files use [Bulma](
 ```
 
 ### Usage
-**mvn io.github.aurabhi:helm-doc-maven-plugin:0.0.1-SNAPSHOT:generate**
+```shell
+mvn io.github.aurabhi:helm-doc-maven-plugin:0.0.1-SNAPSHOT:generate
+```
 
 ### Screenshot: 
 <img src="https://github.com/aurabhi/helm-doc/blob/main/Screenshot.png" width="600" height="400" alt="Screenshot">
