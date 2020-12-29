@@ -1,10 +1,9 @@
-package org.aurad.mvn.helm.doc.plugin;
+package io.github.aurabhi.mvn.helm.doc.plugin;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import freemarker.template.TemplateException;
 import freemarker.template.Version;
-import org.aurad.mvn.helm.doc.plugin.model.HelmDoc;
+import io.github.aurabhi.mvn.helm.doc.plugin.model.HelmDoc;
 
 import java.io.IOException;
 import java.io.StringWriter;

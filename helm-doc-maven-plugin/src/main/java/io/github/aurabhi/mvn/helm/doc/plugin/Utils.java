@@ -1,9 +1,9 @@
-package org.aurad.mvn.helm.doc.plugin;
+package io.github.aurabhi.mvn.helm.doc.plugin;
 
+import io.github.aurabhi.mvn.helm.doc.plugin.model.Chart;
+import io.github.aurabhi.mvn.helm.doc.plugin.model.ValuesParameter;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
-import org.aurad.mvn.helm.doc.plugin.model.Chart;
-import org.aurad.mvn.helm.doc.plugin.model.ValuesParameter;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;

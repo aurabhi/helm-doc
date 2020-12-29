@@ -1,6 +1,6 @@
-package org.aurad.mvn.helm.doc.plugin;
+package io.github.aurabhi.mvn.helm.doc.plugin;
 
-import org.aurad.mvn.helm.doc.plugin.model.HelmDoc;
+import io.github.aurabhi.mvn.helm.doc.plugin.model.HelmDoc;
 
 public interface DocGenerator {
 

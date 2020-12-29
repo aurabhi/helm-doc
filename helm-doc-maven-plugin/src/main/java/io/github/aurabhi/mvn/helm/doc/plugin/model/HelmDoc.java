@@ -1,4 +1,4 @@
-package org.aurad.mvn.helm.doc.plugin.model;
+package io.github.aurabhi.mvn.helm.doc.plugin.model;
 
 import java.util.List;
 

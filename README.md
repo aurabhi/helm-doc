@@ -11,7 +11,7 @@ The docs are generated in **html** format. The generated html files use [Bulma](
   <plugins>
       ...
     <plugin>
-        <groupId>org.aurad</groupId>
+        <groupId>io.github.aurabhi</groupId>
         <artifactId>helm-doc-maven-plugin</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <configuration>
@@ -28,7 +28,7 @@ The docs are generated in **html** format. The generated html files use [Bulma](
 ```
 
 ### Usage
-**mvn org.aurad:helm-doc-maven-plugin:0.0.1-SNAPSHOT:generate**
+**mvn io.github.aurabhi:helm-doc-maven-plugin:0.0.1-SNAPSHOT:generate**
 
 ### Screenshot: 
 <img src="https://github.com/aurabhi/helm-doc/blob/main/Screenshot.png" width="600" height="400" alt="Screenshot">
