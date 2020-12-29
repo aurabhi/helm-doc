@@ -65,18 +65,28 @@ public class Utils {
         List<ValuesParameter> params = new ArrayList<>();
         List<String> lines = getFileContent(filePath);
         String doc = "";
+        ValuesParameter p = new ValuesParameter();
         for(String line : lines ) {
+            if(line.trim().length() == 0) {
+                continue;
+            }
             if( line.trim().startsWith(YAML_COMMENT)) {
                 doc += line+"<br>"; //TODO: The line break should not be html!!
             } else  {
-                ValuesParameter p = new ValuesParameter();
-                p.setName(line.split(VALUE_SEPERATOR)[0]);
-                if (line.split(VALUE_SEPERATOR).length > 1) {
-                  p.setValue(line.split(VALUE_SEPERATOR)[1]);
+                if(line.contains(VALUE_SEPERATOR)) {
+                    p = new ValuesParameter();
+                    p.setName(line.split(VALUE_SEPERATOR)[0]);
+                    if (line.split(VALUE_SEPERATOR).length > 1) {
+                        p.setValue(line.split(VALUE_SEPERATOR)[1]);
+                    }
+                    p.setDocs(doc.replace(YAML_COMMENT, ""));
+                    params.add(p);
+                    doc = "";
+                } else {
+                    params.remove(p);
+                    p.setValue(p.getValue() + line);
+                    params.add(p);
                 }
-                p.setDocs(doc.replace(YAML_COMMENT, ""));
-                params.add(p);
-                doc = "";
             }
         }
         return params;
