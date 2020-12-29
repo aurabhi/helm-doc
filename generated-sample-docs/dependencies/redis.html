@@ -374,11 +374,6 @@
                               <td>   imageRegistry: myRegistryName<br>   imagePullSecrets:<br>     - myRegistryKeySecretName<br>   storageClass: myStorageClass<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>image</td>
                               <td></td>
                               <td> Bitnami Redis image version<br> ref: https://hub.docker.com/r/bitnami/redis/tags/<br><br></td>
@@ -404,24 +399,9 @@
                               <td>   Specify a imagePullPolicy<br>   Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'<br>   ref: http://kubernetes.io/docs/user-guide/images/pre-pulling-images<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Optionally specify an array of imagePullSecrets.<br>   Secrets must be manually created in the namespace.<br>   ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/<br>  <br>   pullSecrets:<br>     - myRegistryKeySecretName<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td> String to partially override redis.fullname template (will maintain the release name)<br><br> nameOverride:<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td> String to fully override redis.fullname template<br><br> fullnameOverride:<br></td>
-                          </tr>
-                          <tr>
                               <td>cluster</td>
                               <td></td>
-                              <td> Cluster settings<br></td>
+                              <td>   Optionally specify an array of imagePullSecrets.<br>   Secrets must be manually created in the namespace.<br>   ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/<br>  <br>   pullSecrets:<br>     - myRegistryKeySecretName<br> String to partially override redis.fullname template (will maintain the release name)<br><br> nameOverride:<br> String to fully override redis.fullname template<br><br> fullnameOverride:<br> Cluster settings<br></td>
                           </tr>
                           <tr>
                               <td>  enabled</td>
@@ -431,11 +411,6 @@
                           <tr>
                               <td>  slaveCount</td>
                               <td> 2</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -624,19 +599,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Specify the nodePort value for the LoadBalancer and NodePort service types.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/type-nodeport<br>    <br>     sentinelNodePort:<br>     redisNodePort:<br></td>
-                          </tr>
-                          <tr>
                               <td>    annotations</td>
                               <td> {}</td>
-                              <td>     Provide any additional annotations which may be required. This can be used to<br>     set the LoadBalancer service type to internal only.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/internal-load-balancer<br>    <br></td>
+                              <td>     Specify the nodePort value for the LoadBalancer and NodePort service types.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/type-nodeport<br>    <br>     sentinelNodePort:<br>     redisNodePort:<br>     Provide any additional annotations which may be required. This can be used to<br>     set the LoadBalancer service type to internal only.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/internal-load-balancer<br>    <br></td>
                           </tr>
                           <tr>
                               <td>    labels</td>
@@ -649,19 +614,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>clusterDomain</td>
                               <td> cluster.local</td>
                               <td> Specifies the Kubernetes Cluster's Domain Name.<br><br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>networkPolicy</td>
@@ -674,28 +629,13 @@
                               <td>   Specifies whether a NetworkPolicy should be created<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   The Policy model to apply. When set to false, only pods with the correct<br>   client label will have network access to the port Redis is listening<br>   on. When true, Redis will accept connections from any source<br>   (with the correct destination port).<br>  <br>   allowExternal: true<br></td>
-                          </tr>
-                          <tr>
                               <td>  ingressNSMatchLabels</td>
                               <td> {}</td>
-                              <td>   Allow connections from other namespaces. Just set label for namespace and set label for pods (optional).<br>  <br></td>
+                              <td>   The Policy model to apply. When set to false, only pods with the correct<br>   client label will have network access to the port Redis is listening<br>   on. When true, Redis will accept connections from any source<br>   (with the correct destination port).<br>  <br>   allowExternal: true<br>   Allow connections from other namespaces. Just set label for namespace and set label for pods (optional).<br>  <br></td>
                           </tr>
                           <tr>
                               <td>  ingressNSPodMatchLabels</td>
                               <td> {}</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -714,29 +654,14 @@
                               <td>   The name of the ServiceAccount to use.<br>   If not set and create is true, a name is generated using the fullname template<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Add annotations to service account<br>   annotations:<br>     iam.gke.io/gcp-service-account: "sa@project.iam.gserviceaccount.com"<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>rbac</td>
                               <td></td>
-                              <td></td>
+                              <td>   Add annotations to service account<br>   annotations:<br>     iam.gke.io/gcp-service-account: "sa@project.iam.gserviceaccount.com"<br></td>
                           </tr>
                           <tr>
                               <td>  create</td>
                               <td> false</td>
                               <td>   Specifies whether RBAC resources should be created<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  role</td>
@@ -747,11 +672,6 @@
                               <td>    rules</td>
                               <td> []</td>
                               <td>     Rules to create. It follows the role specification<br>     rules:<br>      - apiGroups:<br>        - extensions<br>        resources:<br>          - podsecuritypolicies<br>        verbs:<br>          - use<br>        resourceNames:<br>          - gce.unprivileged<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>securityContext</td>
@@ -769,14 +689,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   sysctl settings for master and slave pods<br>  <br>   Uncomment the setting below to increase the net.core.somaxconn value<br>  <br>   sysctls:<br>   - name: net.core.somaxconn<br>     value: "10000"<br></td>
-                          </tr>
-                          <tr>
                               <td>containerSecurityContext</td>
                               <td></td>
-                              <td> Container Security Context<br> ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/<br><br></td>
+                              <td>   sysctl settings for master and slave pods<br>  <br>   Uncomment the setting below to increase the net.core.somaxconn value<br>  <br>   sysctls:<br>   - name: net.core.somaxconn<br>     value: "10000"<br> Container Security Context<br> ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/<br><br></td>
                           </tr>
                           <tr>
                               <td>  enabled</td>
@@ -786,11 +701,6 @@
                           <tr>
                               <td>  runAsUser</td>
                               <td> 1001</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -804,19 +714,9 @@
                               <td> Redis password (both master and slave)<br> Defaults to a random 10-character alphanumeric string if not set and usePassword is true<br> ref: https://github.com/bitnami/bitnami-docker-redissetting-the-server-password-on-first-run<br><br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td> Use existing secret (ignores previous password)<br> existingSecret:<br> Password key to be retrieved from Redis secret<br><br> existingSecretPasswordKey:<br></td>
-                          </tr>
-                          <tr>
                               <td>usePasswordFile</td>
                               <td> false</td>
-                              <td> Mount secrets as files instead of environment variables<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td> Use existing secret (ignores previous password)<br> existingSecret:<br> Password key to be retrieved from Redis secret<br><br> existingSecretPasswordKey:<br> Mount secrets as files instead of environment variables<br></td>
                           </tr>
                           <tr>
                               <td>persistence</td>
@@ -829,19 +729,9 @@
                               <td>   A manually managed Persistent Volume and Claim<br>   Requires persistence.enabled: true<br>   If defined, PVC must be created manually before volume will be bound<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>redisPort</td>
                               <td> 6379</td>
                               <td> Redis port<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>tls</td>
@@ -879,14 +769,9 @@
                               <td>  <br>   CA Certificate filename<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>  <br>   File containing DH params (in order to support DH based ciphers)<br>   dhParamsFilename:<br></td>
-                          </tr>
-                          <tr>
                               <td>master</td>
                               <td></td>
-                              <td><br> Redis Master parameters<br><br></td>
+                              <td>  <br>   File containing DH params (in order to support DH based ciphers)<br>   dhParamsFilename:<br><br> Redis Master parameters<br><br></td>
                           </tr>
                           <tr>
                               <td>  command</td>
@@ -910,23 +795,8 @@
                           </tr>
                           <tr>
                               <td>  disableCommands</td>
-                              <td></td>
+                              <td>    - FLUSHDB    - FLUSHALL</td>
                               <td>   Comma-separated list of Redis commands to disable<br>  <br>   Can be used to disable Redis commands for security reasons.<br>   Commands will be completely disabled by renaming each to an empty string.<br>   ref: https://redis.io/topics/securitydisabling-of-specific-commands<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td>    - FLUSHDB</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    - FLUSHALL</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  podLabels</td>
@@ -939,19 +809,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Redis Master resource requests and limits<br>   ref: http://kubernetes.io/docs/user-guide/compute-resources/<br>   resources:<br>     requests:<br>       memory: 256Mi<br>       cpu: 100m<br>   Use an alternate scheduler, e.g. "stork".<br>   ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/<br>  <br>   schedulerName:<br></td>
-                          </tr>
-                          <tr>
                               <td>  shareProcessNamespace</td>
                               <td> false</td>
-                              <td>   Enable shared process namespace in a pod.<br>   If set to false (default), each container will run in separate namespace, redis will have PID=1.<br>   If set to true, the /pause will run as init process and will reap any zombie PIDs,<br>   for example, generated by a custom exec probe running longer than a probe timeoutSeconds.<br>   Enable this only if customLivenessProbe or customReadinessProbe is used and zombie PIDs are accumulating.<br>   Ref: https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/<br></td>
+                              <td>   Redis Master resource requests and limits<br>   ref: http://kubernetes.io/docs/user-guide/compute-resources/<br>   resources:<br>     requests:<br>       memory: 256Mi<br>       cpu: 100m<br>   Use an alternate scheduler, e.g. "stork".<br>   ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/<br>  <br>   schedulerName:<br>   Enable shared process namespace in a pod.<br>   If set to false (default), each container will run in separate namespace, redis will have PID=1.<br>   If set to true, the /pause will run as init process and will reap any zombie PIDs,<br>   for example, generated by a custom exec probe running longer than a probe timeoutSeconds.<br>   Enable this only if customLivenessProbe or customReadinessProbe is used and zombie PIDs are accumulating.<br>   Ref: https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/<br></td>
                           </tr>
                           <tr>
                               <td>  livenessProbe</td>
@@ -1024,11 +884,6 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  customLivenessProbe</td>
                               <td> {}</td>
                               <td>   Configure custom probes for images other images like<br>   rhscl/redis-32-rhel7 rhscl/redis-5-rhel7<br>   Only used if readinessProbe.enabled: false / livenessProbe.enabled: false<br>  <br>   customLivenessProbe:<br>    tcpSocket:<br>      port: 6379<br>    initialDelaySeconds: 10<br>    periodSeconds: 5<br>   customReadinessProbe:<br>    initialDelaySeconds: 30<br>    periodSeconds: 10<br>    timeoutSeconds: 5<br>    exec:<br>      command:<br>      - "container-entrypoint"<br>      - "bash"<br>      - "-c"<br>      - "redis-cli set liveness-probe \"`date`\" | grep OK"<br></td>
@@ -1039,19 +894,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  affinity</td>
                               <td> {}</td>
                               <td>   Redis Master Node selectors and tolerations for pod assignment<br>   ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/nodeselector<br>   ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/taints-and-tolerations-beta-feature<br>  <br>   nodeSelector: {"beta.kubernetes.io/arch": "amd64"}<br>   tolerations: []<br>   Redis Master pod/node affinity/anti-affinity<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  service</td>
@@ -1069,19 +914,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Specify the nodePort value for the LoadBalancer and NodePort service types.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/type-nodeport<br>    <br>     nodePort:<br></td>
-                          </tr>
-                          <tr>
                               <td>    annotations</td>
                               <td> {}</td>
-                              <td>     Provide any additional annotations which may be required. This can be used to<br>     set the LoadBalancer service type to internal only.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/internal-load-balancer<br>    <br></td>
+                              <td>     Specify the nodePort value for the LoadBalancer and NodePort service types.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/type-nodeport<br>    <br>     nodePort:<br>     Provide any additional annotations which may be required. This can be used to<br>     set the LoadBalancer service type to internal only.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/internal-load-balancer<br>    <br></td>
                           </tr>
                           <tr>
                               <td>    labels</td>
@@ -1094,14 +929,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     loadBalancerSourceRanges: ["10.0.0.0/8"]<br></td>
-                          </tr>
-                          <tr>
                               <td>  persistence</td>
                               <td></td>
-                              <td>   Enable persistence using Persistent Volume Claims<br>   ref: http://kubernetes.io/docs/user-guide/persistent-volumes/<br>  <br></td>
+                              <td>     loadBalancerSourceRanges: ["10.0.0.0/8"]<br>   Enable persistence using Persistent Volume Claims<br>   ref: http://kubernetes.io/docs/user-guide/persistent-volumes/<br>  <br></td>
                           </tr>
                           <tr>
                               <td>    enabled</td>
@@ -1120,13 +950,8 @@
                           </tr>
                           <tr>
                               <td>    accessModes</td>
-                              <td></td>
-                              <td>     redis data Persistent Volume Storage Class<br>     If defined, storageClassName: <storageClass><br>     If set to "-", storageClassName: "", which disables dynamic provisioning<br>     If undefined (the default) or set to null, no storageClassName spec is<br>       set, choosing the default provisioner.  (gp2 on AWS, standard on<br>       GKE, AWS & OpenStack)<br>    <br>     storageClass: "-"<br></td>
-                          </tr>
-                          <tr>
                               <td>      - ReadWriteOnce</td>
-                              <td></td>
-                              <td></td>
+                              <td>     redis data Persistent Volume Storage Class<br>     If defined, storageClassName: <storageClass><br>     If set to "-", storageClassName: "", which disables dynamic provisioning<br>     If undefined (the default) or set to null, no storageClassName spec is<br>       set, choosing the default provisioner.  (gp2 on AWS, standard on<br>       GKE, AWS & OpenStack)<br>    <br>     storageClass: "-"<br></td>
                           </tr>
                           <tr>
                               <td>    size</td>
@@ -1141,11 +966,6 @@
                           <tr>
                               <td>    matchExpressions</td>
                               <td> {}</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -1164,19 +984,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Partition update strategy<br>     https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/partitions<br>     rollingUpdatePartition:<br></td>
-                          </tr>
-                          <tr>
                               <td>  priorityClassName</td>
                               <td> ''</td>
-                              <td>   Redis Master pod priorityClassName<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>     Partition update strategy<br>     https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/partitions<br>     rollingUpdatePartition:<br>   Redis Master pod priorityClassName<br>  <br></td>
                           </tr>
                           <tr>
                               <td>  extraEnvVars</td>
@@ -1184,29 +994,14 @@
                               <td>   An array to add extra env vars<br>   For example:<br>   extraEnvVars:<br>    - name: name<br>      value: value<br>    - name: other_name<br>      valueFrom:<br>        fieldRef:<br>          fieldPath: fieldPath<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraEnvVarsCM</td>
                               <td> []</td>
                               <td>   ConfigMap with extra env vars:<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraEnvVarsSecret</td>
                               <td> []</td>
                               <td>   Secret with extra env vars:<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>slave</td>
@@ -1229,14 +1024,9 @@
                               <td>     Redis port<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Specify the nodePort value for the LoadBalancer and NodePort service types.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/type-nodeport<br>    <br>     nodePort:<br></td>
-                          </tr>
-                          <tr>
                               <td>    annotations</td>
                               <td> {}</td>
-                              <td>     Provide any additional annotations which may be required. This can be used to<br>     set the LoadBalancer service type to internal only.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/internal-load-balancer<br>    <br></td>
+                              <td>     Specify the nodePort value for the LoadBalancer and NodePort service types.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/type-nodeport<br>    <br>     nodePort:<br>     Provide any additional annotations which may be required. This can be used to<br>     set the LoadBalancer service type to internal only.<br>     ref: https://kubernetes.io/docs/concepts/services-networking/service/internal-load-balancer<br>    <br></td>
                           </tr>
                           <tr>
                               <td>    labels</td>
@@ -1249,14 +1039,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     loadBalancerSourceRanges: ["10.0.0.0/8"]<br></td>
-                          </tr>
-                          <tr>
                               <td>  port</td>
                               <td> 6379</td>
-                              <td>   Redis slave port<br></td>
+                              <td>     loadBalancerSourceRanges: ["10.0.0.0/8"]<br>   Redis slave port<br></td>
                           </tr>
                           <tr>
                               <td>  command</td>
@@ -1280,23 +1065,8 @@
                           </tr>
                           <tr>
                               <td>  disableCommands</td>
-                              <td></td>
+                              <td>    - FLUSHDB    - FLUSHALL</td>
                               <td>   List of Redis commands to disable<br></td>
-                          </tr>
-                          <tr>
-                              <td>    - FLUSHDB</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    - FLUSHALL</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  affinity</td>
@@ -1304,19 +1074,9 @@
                               <td>   Redis Slave pod/node affinity/anti-affinity<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  spreadConstraints</td>
                               <td> {}</td>
                               <td>   Kubernetes Spread Constraints for pod assignment<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/<br>  <br>   - maxSkew: 1<br>     topologyKey: node<br>     whenUnsatisfiable: DoNotSchedule<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  shareProcessNamespace</td>
@@ -1394,11 +1154,6 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  customLivenessProbe</td>
                               <td> {}</td>
                               <td>   Configure custom probes for images other images like<br>   rhscl/redis-32-rhel7 rhscl/redis-5-rhel7<br>   Only used if readinessProbe.enabled: false / livenessProbe.enabled: false<br>  <br>   customLivenessProbe:<br>    tcpSocket:<br>      port: 6379<br>    initialDelaySeconds: 10<br>    periodSeconds: 5<br>   customReadinessProbe:<br>    initialDelaySeconds: 30<br>    periodSeconds: 10<br>    timeoutSeconds: 5<br>    exec:<br>      command:<br>      - "container-entrypoint"<br>      - "bash"<br>      - "-c"<br>      - "redis-cli set liveness-probe \"`date`\" | grep OK"<br></td>
@@ -1409,29 +1164,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Redis slave Resource<br>   resources:<br>     requests:<br>       memory: 256Mi<br>       cpu: 100m<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Redis slave selectors and tolerations for pod assignment<br>   nodeSelector: {"beta.kubernetes.io/arch": "amd64"}<br>   tolerations: []<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Use an alternate scheduler, e.g. "stork".<br>   ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/<br>  <br>   schedulerName:<br></td>
-                          </tr>
-                          <tr>
                               <td>  podLabels</td>
                               <td> {}</td>
-                              <td>   Redis slave pod Annotation and Labels<br></td>
+                              <td>   Redis slave Resource<br>   resources:<br>     requests:<br>       memory: 256Mi<br>       cpu: 100m<br>   Redis slave selectors and tolerations for pod assignment<br>   nodeSelector: {"beta.kubernetes.io/arch": "amd64"}<br>   tolerations: []<br>   Use an alternate scheduler, e.g. "stork".<br>   ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/<br>  <br>   schedulerName:<br>   Redis slave pod Annotation and Labels<br></td>
                           </tr>
                           <tr>
                               <td>  podAnnotations</td>
@@ -1439,19 +1174,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Redis slave pod priorityClassName<br>   priorityClassName: ''<br></td>
-                          </tr>
-                          <tr>
                               <td>  persistence</td>
                               <td></td>
-                              <td>   Enable persistence using Persistent Volume Claims<br>   ref: http://kubernetes.io/docs/user-guide/persistent-volumes/<br>  <br></td>
+                              <td>   Redis slave pod priorityClassName<br>   priorityClassName: ''<br>   Enable persistence using Persistent Volume Claims<br>   ref: http://kubernetes.io/docs/user-guide/persistent-volumes/<br>  <br></td>
                           </tr>
                           <tr>
                               <td>    enabled</td>
@@ -1470,13 +1195,8 @@
                           </tr>
                           <tr>
                               <td>    accessModes</td>
-                              <td></td>
-                              <td>     redis data Persistent Volume Storage Class<br>     If defined, storageClassName: <storageClass><br>     If set to "-", storageClassName: "", which disables dynamic provisioning<br>     If undefined (the default) or set to null, no storageClassName spec is<br>       set, choosing the default provisioner.  (gp2 on AWS, standard on<br>       GKE, AWS & OpenStack)<br>    <br>     storageClass: "-"<br></td>
-                          </tr>
-                          <tr>
                               <td>      - ReadWriteOnce</td>
-                              <td></td>
-                              <td></td>
+                              <td>     redis data Persistent Volume Storage Class<br>     If defined, storageClassName: <storageClass><br>     If set to "-", storageClassName: "", which disables dynamic provisioning<br>     If undefined (the default) or set to null, no storageClassName spec is<br>       set, choosing the default provisioner.  (gp2 on AWS, standard on<br>       GKE, AWS & OpenStack)<br>    <br>     storageClass: "-"<br></td>
                           </tr>
                           <tr>
                               <td>    size</td>
@@ -1491,11 +1211,6 @@
                           <tr>
                               <td>    matchExpressions</td>
                               <td> {}</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -1514,19 +1229,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Partition update strategy<br>     https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/partitions<br>     rollingUpdatePartition:<br></td>
-                          </tr>
-                          <tr>
                               <td>  extraEnvVars</td>
                               <td> []</td>
-                              <td>   An array to add extra env vars<br>   For example:<br>   extraEnvVars:<br>    - name: name<br>      value: value<br>    - name: other_name<br>      valueFrom:<br>        fieldRef:<br>          fieldPath: fieldPath<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>     Partition update strategy<br>     https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/partitions<br>     rollingUpdatePartition:<br>   An array to add extra env vars<br>   For example:<br>   extraEnvVars:<br>    - name: name<br>      value: value<br>    - name: other_name<br>      valueFrom:<br>        fieldRef:<br>          fieldPath: fieldPath<br>  <br></td>
                           </tr>
                           <tr>
                               <td>  extraEnvVarsCM</td>
@@ -1534,19 +1239,9 @@
                               <td>   ConfigMap with extra env vars:<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraEnvVarsSecret</td>
                               <td> []</td>
                               <td>   Secret with extra env vars:<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>metrics</td>
@@ -1556,11 +1251,6 @@
                           <tr>
                               <td>  enabled</td>
                               <td> false</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -1589,24 +1279,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Optionally specify an array of imagePullSecrets.<br>     Secrets must be manually created in the namespace.<br>     ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/<br>    <br>     pullSecrets:<br>       - myRegistryKeySecretName<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Metrics exporter resource requests and limits<br>   ref: http://kubernetes.io/docs/user-guide/compute-resources/<br>  <br>   resources: {}<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Extra arguments for Metrics exporter, for example:<br>   extraArgs:<br>     check-keys: myKey,myOtherKey<br>   extraArgs: {}<br></td>
-                          </tr>
-                          <tr>
                               <td>  podAnnotations</td>
                               <td></td>
-                              <td>   Metrics exporter pod Annotation and Labels<br></td>
+                              <td>     Optionally specify an array of imagePullSecrets.<br>     Secrets must be manually created in the namespace.<br>     ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/<br>    <br>     pullSecrets:<br>       - myRegistryKeySecretName<br>   Metrics exporter resource requests and limits<br>   ref: http://kubernetes.io/docs/user-guide/compute-resources/<br>  <br>   resources: {}<br>   Extra arguments for Metrics exporter, for example:<br>   extraArgs:<br>     check-keys: myKey,myOtherKey<br>   extraArgs: {}<br>   Metrics exporter pod Annotation and Labels<br></td>
                           </tr>
                           <tr>
                               <td>    prometheus.io/scrape</td>
@@ -1619,14 +1294,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   podLabels: {}<br></td>
-                          </tr>
-                          <tr>
                               <td>  serviceMonitor</td>
                               <td></td>
-                              <td>   Enable this if you're using https://github.com/coreos/prometheus-operator<br></td>
+                              <td>   podLabels: {}<br>   Enable this if you're using https://github.com/coreos/prometheus-operator<br></td>
                           </tr>
                           <tr>
                               <td>    enabled</td>
@@ -1641,11 +1311,6 @@
                           <tr>
                               <td>      prometheus</td>
                               <td> kube-prometheus</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -1674,11 +1339,6 @@
                               <td>     Redis prometheus rules<br>     These are just examples rules, please adapt them to your needs.<br>     Make sure to constraint the rules to the current redis service.<br>     rules:<br>       - alert: RedisDown<br>         expr: redis_up{service="{{ template "redis.fullname" . }}-metrics"} == 0<br>         for: 2m<br>         labels:<br>           severity: error<br>         annotations:<br>           summary: Redis instance {{ "{{ $labels.instance }}" }} down<br>           description: Redis instance {{ "{{ $labels.instance }}" }} is down<br>        - alert: RedisMemoryHigh<br>          expr: ><br>            redis_memory_used_bytes{service="{{ template "redis.fullname" . }}-metrics"} * 100<br>            /<br>            redis_memory_max_bytes{service="{{ template "redis.fullname" . }}-metrics"}<br>            > 90<br>          for: 2m<br>          labels:<br>            severity: error<br>          annotations:<br>            summary: Redis instance {{ "{{ $labels.instance }}" }} is using too much memory<br>            description: |<br>              Redis instance {{ "{{ $labels.instance }}" }} is using {{ "{{ $value }}" }}% of its available memory.<br>        - alert: RedisKeyEviction<br>          expr: |<br>            increase(redis_evicted_keys_total{service="{{ template "redis.fullname" . }}-metrics"}[5m]) > 0<br>          for: 1s<br>          labels:<br>            severity: error<br>          annotations:<br>            summary: Redis instance {{ "{{ $labels.instance }}" }} has evicted keys<br>            description: |<br>              Redis instance {{ "{{ $labels.instance }}" }} has evicted {{ "{{ $value }}" }} keys in the last 5 minutes.<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  service</td>
                               <td></td>
                               <td>   Metrics exporter pod priorityClassName<br>   priorityClassName: ''<br></td>
@@ -1696,11 +1356,6 @@
                           <tr>
                               <td>    labels</td>
                               <td> {}</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -1744,14 +1399,9 @@
                               <td>     Optionally specify an array of imagePullSecrets.<br>     Secrets must be manually created in the namespace.<br>     ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/<br>    <br>     pullSecrets:<br>       - myRegistryKeySecretName<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   resources:<br>     requests:<br>       memory: 128Mi<br>       cpu: 100m<br></td>
-                          </tr>
-                          <tr>
                               <td>  securityContext</td>
                               <td></td>
-                              <td>   Init container Security Context<br>   Note: the chown of the data folder is done to containerSecurityContext.runAsUser<br>   and not the below volumePermissions.securityContext.runAsUser<br>   When runAsUser is set to special value "auto", init container will try to chwon the<br>   data folder to autodetermined user&group, using commands: `id -u`:`id -G | cut -d" " -f2`<br>   "auto" is especially useful for OpenShift which has scc with dynamic userids (and 0 is not allowed).<br>   You may want to use this volumePermissions.securityContext.runAsUser="auto" in combination with<br>   podSecurityContext.enabled=false,containerSecurityContext.enabled=false<br>  <br></td>
+                              <td>   resources:<br>     requests:<br>       memory: 128Mi<br>       cpu: 100m<br>   Init container Security Context<br>   Note: the chown of the data folder is done to containerSecurityContext.runAsUser<br>   and not the below volumePermissions.securityContext.runAsUser<br>   When runAsUser is set to special value "auto", init container will try to chwon the<br>   data folder to autodetermined user&group, using commands: `id -u`:`id -G | cut -d" " -f2`<br>   "auto" is especially useful for OpenShift which has scc with dynamic userids (and 0 is not allowed).<br>   You may want to use this volumePermissions.securityContext.runAsUser="auto" in combination with<br>   podSecurityContext.enabled=false,containerSecurityContext.enabled=false<br>  <br></td>
                           </tr>
                           <tr>
                               <td>    runAsUser</td>
@@ -1759,34 +1409,14 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>configmap</td>
-                              <td> |-</td>
+                              <td> |-  appendonly yes  save ""</td>
                               <td> Redis config file<br> ref: https://redis.io/topics/config<br><br></td>
-                          </tr>
-                          <tr>
-                              <td>  appendonly yes</td>
-                              <td></td>
-                              <td>   Enable AOF https://redis.io/topics/persistenceappend-only-file<br></td>
-                          </tr>
-                          <tr>
-                              <td>  save ""</td>
-                              <td></td>
-                              <td>   Disable RDB persistence, AOF persistence already enabled.<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>sysctlImage</td>
                               <td></td>
-                              <td> Sysctl InitContainer<br> used to perform sysctl operation to modify Kernel settings (needed sometimes to avoid warnings)<br></td>
+                              <td>   Enable AOF https://redis.io/topics/persistenceappend-only-file<br>   Disable RDB persistence, AOF persistence already enabled.<br> Sysctl InitContainer<br> used to perform sysctl operation to modify Kernel settings (needed sometimes to avoid warnings)<br></td>
                           </tr>
                           <tr>
                               <td>  enabled</td>
@@ -1829,24 +1459,14 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   resources:<br>     requests:<br>       memory: 128Mi<br>       cpu: 100m<br></td>
-                          </tr>
-                          <tr>
                               <td>podSecurityPolicy</td>
                               <td></td>
-                              <td> PodSecurityPolicy configuration<br> ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/<br><br></td>
+                              <td>   resources:<br>     requests:<br>       memory: 128Mi<br>       cpu: 100m<br> PodSecurityPolicy configuration<br> ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/<br><br></td>
                           </tr>
                           <tr>
                               <td>  create</td>
                               <td> false</td>
                               <td>   Specifies whether a PodSecurityPolicy should be created<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>podDisruptionBudget</td>

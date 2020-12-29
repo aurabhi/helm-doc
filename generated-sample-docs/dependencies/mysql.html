@@ -372,14 +372,9 @@
                       </tr>
                   </thead>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td> Global Docker image parameters<br> Please, note that this will override the image parameters, including dependencies, configured to use the global value<br> Current available global Docker image parameters: imageRegistry and imagePullSecrets<br><br> global:<br>   imageRegistry: myRegistryName<br>   imagePullSecrets:<br>     - myRegistryKeySecretName<br>   storageClass: myStorageClass<br></td>
-                          </tr>
-                          <tr>
                               <td>image</td>
                               <td></td>
-                              <td> Bitnami MySQL image<br> ref: https://hub.docker.com/r/bitnami/mysql/tags/<br><br></td>
+                              <td> Global Docker image parameters<br> Please, note that this will override the image parameters, including dependencies, configured to use the global value<br> Current available global Docker image parameters: imageRegistry and imagePullSecrets<br><br> global:<br>   imageRegistry: myRegistryName<br>   imagePullSecrets:<br>     - myRegistryKeySecretName<br>   storageClass: myStorageClass<br> Bitnami MySQL image<br> ref: https://hub.docker.com/r/bitnami/mysql/tags/<br><br></td>
                           </tr>
                           <tr>
                               <td>  registry</td>
@@ -412,29 +407,9 @@
                               <td>   Set to true if you would like to see extra information on logs<br>   It turns BASH and NAMI debugging in minideb<br>   ref:  https://github.com/bitnami/minideb-extras/turn-on-bash-debugging<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td> String to partially override common.names.fullname template (will maintain the release name)<br><br> nameOverride:<br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td> String to fully override common.names..fullname template<br><br> fullnameOverride:<br></td>
-                          </tr>
-                          <tr>
                               <td>clusterDomain</td>
                               <td> cluster.local</td>
-                              <td> Cluster domain<br><br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td> String to partially override common.names.fullname template (will maintain the release name)<br><br> nameOverride:<br> String to fully override common.names..fullname template<br><br> fullnameOverride:<br> Cluster domain<br><br></td>
                           </tr>
                           <tr>
                               <td>commonAnnotations</td>
@@ -442,34 +417,14 @@
                               <td> Common annotations to add to all MySQL resources (sub-charts are not considered). Evaluated as a template<br><br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>commonLabels</td>
                               <td> {}</td>
                               <td> Common labels to add to all MySQL resources (sub-charts are not considered). Evaluated as a template<br><br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td> Use an alternate scheduler, e.g. "stork".<br> ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/<br><br> schedulerName:<br></td>
-                          </tr>
-                          <tr>
                               <td>architecture</td>
                               <td> standalone</td>
-                              <td> MySQL architecture. Allowed values: standalone or replication<br><br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td> Use an alternate scheduler, e.g. "stork".<br> ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/<br><br> schedulerName:<br> MySQL architecture. Allowed values: standalone or replication<br><br></td>
                           </tr>
                           <tr>
                               <td>auth</td>
@@ -522,29 +477,14 @@
                               <td>   Use custom secret files other than chart provided when usePasswordFiles is set to "true"<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Example:<br>   customPasswordFiles:<br>     root: /vault/secrets/mariadb-root<br>     user: /vault/secrets/mariadb-user<br>     replicator: /vault/secrets/mariadb-replicator<br>  <br></td>
-                          </tr>
-                          <tr>
                               <td>initdbScripts</td>
                               <td> {}</td>
-                              <td> initdb scripts<br> Specify dictionary of scripts to be run at first boot<br> Example:<br> initdbScripts:<br>   my_init_script.sh: |<br>      !/bin/bash<br>      echo "Do something."<br><br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td> Existing ConfigMap with custom init scripts<br><br> initdbScriptsConfigMap:<br></td>
+                              <td>   Example:<br>   customPasswordFiles:<br>     root: /vault/secrets/mariadb-root<br>     user: /vault/secrets/mariadb-user<br>     replicator: /vault/secrets/mariadb-replicator<br>  <br> initdb scripts<br> Specify dictionary of scripts to be run at first boot<br> Example:<br> initdbScripts:<br>   my_init_script.sh: |<br>      !/bin/bash<br>      echo "Do something."<br><br></td>
                           </tr>
                           <tr>
                               <td>primary</td>
                               <td></td>
-                              <td> MySQL Primary parameters<br><br></td>
+                              <td> Existing ConfigMap with custom init scripts<br><br> initdbScriptsConfigMap:<br> MySQL Primary parameters<br><br></td>
                           </tr>
                           <tr>
                               <td>  command</td>
@@ -557,184 +497,19 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  configuration</td>
-                              <td> |-</td>
+                              <td> |-    [mysqld]    default_authentication_plugin=mysql_native_password    skip-name-resolve    explicit_defaults_for_timestamp    basedir=/opt/bitnami/mysql    plugin_dir=/opt/bitnami/mysql/plugin    port=3306    socket=/opt/bitnami/mysql/tmp/mysql.sock    datadir=/bitnami/mysql/data    tmpdir=/opt/bitnami/mysql/tmp    max_allowed_packet=16M    bind-address=0.0.0.0    pid-file=/opt/bitnami/mysql/tmp/mysqld.pid    log-error=/opt/bitnami/mysql/logs/mysqld.log    character-set-server=UTF8    collation-server=utf8_general_ci    [client]    port=3306    socket=/opt/bitnami/mysql/tmp/mysql.sock    default-character-set=UTF8    plugin_dir=/opt/bitnami/mysql/plugin    [manager]    port=3306    socket=/opt/bitnami/mysql/tmp/mysql.sock    pid-file=/opt/bitnami/mysql/tmp/mysqld.pid</td>
                               <td>   Configure MySQL Primary with a custom my.cnf file<br>   ref: https://mysql.com/kb/en/mysql/configuring-mysql-with-mycnf/example-of-configuration-file<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td>    [mysqld]</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    default_authentication_plugin=mysql_native_password</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    skip-name-resolve</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    explicit_defaults_for_timestamp</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    basedir=/opt/bitnami/mysql</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    plugin_dir=/opt/bitnami/mysql/plugin</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    port=3306</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    socket=/opt/bitnami/mysql/tmp/mysql.sock</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    datadir=/bitnami/mysql/data</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    tmpdir=/opt/bitnami/mysql/tmp</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    max_allowed_packet=16M</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    bind-address=0.0.0.0</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    pid-file=/opt/bitnami/mysql/tmp/mysqld.pid</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    log-error=/opt/bitnami/mysql/logs/mysqld.log</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    character-set-server=UTF8</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    collation-server=utf8_general_ci</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    [client]</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    port=3306</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    socket=/opt/bitnami/mysql/tmp/mysql.sock</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    default-character-set=UTF8</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    plugin_dir=/opt/bitnami/mysql/plugin</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    [manager]</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    port=3306</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    socket=/opt/bitnami/mysql/tmp/mysql.sock</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    pid-file=/opt/bitnami/mysql/tmp/mysqld.pid</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Name of existing ConfigMap with MySQL Primary configuration.<br>   NOTE: When it's set the 'configuration' parameter is ignored<br>  <br>   existingConfiguration:<br></td>
                           </tr>
                           <tr>
                               <td>  updateStrategy</td>
                               <td> RollingUpdate</td>
-                              <td>   updateStrategy for MySQL Primary statefulset<br>   ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/update-strategies<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Partition update strategy for MySQL Primary statefulset<br>   https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/partitions<br>  <br>   rollingUpdatePartition:<br></td>
+                              <td>   Name of existing ConfigMap with MySQL Primary configuration.<br>   NOTE: When it's set the 'configuration' parameter is ignored<br>  <br>   existingConfiguration:<br>   updateStrategy for MySQL Primary statefulset<br>   ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/update-strategies<br>  <br></td>
                           </tr>
                           <tr>
                               <td>  podAnnotations</td>
                               <td> {}</td>
-                              <td>   MySQL Primary pod annotations<br>   ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>   Partition update strategy for MySQL Primary statefulset<br>   https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/partitions<br>  <br>   rollingUpdatePartition:<br>   MySQL Primary pod annotations<br>   ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/<br>  <br></td>
                           </tr>
                           <tr>
                               <td>  podAffinityPreset</td>
@@ -742,19 +517,9 @@
                               <td>   MySQL Primary pod affinity preset<br>   ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/inter-pod-affinity-and-anti-affinity<br>   Allowed values: soft, hard<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  podAntiAffinityPreset</td>
                               <td> soft</td>
                               <td>   MySQL Primary pod anti-affinity preset<br>   ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/inter-pod-affinity-and-anti-affinity<br>   Allowed values: soft, hard<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  nodeAffinityPreset</td>
@@ -777,19 +542,9 @@
                               <td>     Node label values to match<br>     E.g.<br>     values:<br>       - e2e-az1<br>       - e2e-az2<br>    <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  affinity</td>
                               <td> {}</td>
                               <td>   Affinity for MySQL primary pods assignment<br>   ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/affinity-and-anti-affinity<br>   Note: podAffinityPreset, podAntiAffinityPreset, and  nodeAffinityPreset will be ignored when it's set<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  nodeSelector</td>
@@ -797,19 +552,9 @@
                               <td>   Node labels for MySQL primary pods assignment<br>   ref: https://kubernetes.io/docs/user-guide/node-selection/<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  tolerations</td>
                               <td> []</td>
                               <td>   Tolerations for MySQL primary pods assignment<br>   ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  podSecurityContext</td>
@@ -824,11 +569,6 @@
                           <tr>
                               <td>    fsGroup</td>
                               <td> 1001</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -847,11 +587,6 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  resources</td>
                               <td></td>
                               <td>   MySQL primary container's resource requests and limits<br>   ref: http://kubernetes.io/docs/user-guide/compute-resources/<br>  <br></td>
@@ -867,14 +602,9 @@
                               <td>       memory: 256Mi<br>       cpu: 250m<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>       memory: 256Mi<br>       cpu: 250m<br></td>
-                          </tr>
-                          <tr>
                               <td>  livenessProbe</td>
                               <td></td>
-                              <td>   MySQL primary container's liveness and readiness probes<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/container-probes<br>  <br></td>
+                              <td>       memory: 256Mi<br>       cpu: 250m<br>   MySQL primary container's liveness and readiness probes<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/container-probes<br>  <br></td>
                           </tr>
                           <tr>
                               <td>    enabled</td>
@@ -942,19 +672,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  customLivenessProbe</td>
                               <td> {}</td>
                               <td>   MySQL primary custom liveness probe<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  customReadinessProbe</td>
@@ -962,19 +682,9 @@
                               <td>   MySQL primary custom rediness probe<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraFlags</td>
                               <td> ""</td>
                               <td>   MySQL primary additional command line flags<br>   Can be used to specify command line flags, for example:<br>   E.g.<br>   extraFlags: "--max-connect-errors=1000 --max_connections=155"<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  extraEnvVars</td>
@@ -982,29 +692,14 @@
                               <td>   An array to add extra environment variables on MySQL primary containers<br>   E.g.<br>   extraEnvVars:<br>    - name: TZ<br>      value: "Europe/Paris"<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraEnvVarsCM</td>
                               <td> ""</td>
                               <td>   ConfigMap with extra env vars for MySQL primary containers:<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraEnvVarsSecret</td>
                               <td> ""</td>
                               <td>   Secret with extra env vars for MySQL primary containers:<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  persistence</td>
@@ -1023,13 +718,8 @@
                           </tr>
                           <tr>
                               <td>    accessModes</td>
-                              <td></td>
-                              <td>     Persistent Volume Access Mode<br>    <br></td>
-                          </tr>
-                          <tr>
                               <td>      - ReadWriteOnce</td>
-                              <td></td>
-                              <td></td>
+                              <td>     Persistent Volume Access Mode<br>    <br></td>
                           </tr>
                           <tr>
                               <td>    size</td>
@@ -1042,19 +732,9 @@
                               <td>     selector can be used to match an existing PersistentVolume<br>     selector:<br>       matchLabels:<br>         app: my-app<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraVolumes</td>
                               <td> []</td>
                               <td>   Extra volumes to add to the MySQL Primary pod(s)<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  extraVolumeMounts</td>
@@ -1062,29 +742,14 @@
                               <td>   Extra volume mounts to add to the MySQL Primary container(s)<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  initContainers</td>
                               <td> []</td>
                               <td>   Extra init containers to add to the MySQL Primary pod(s)<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  sidecars</td>
                               <td> []</td>
                               <td>   Extra sidecar containers to add to the MySQL Primary pod(s)<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  service</td>
@@ -1127,11 +792,6 @@
                               <td>     Provide any additional annotations which may be required<br>    <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  pdb</td>
                               <td></td>
                               <td>   MySQL primary Pod Disruption Budget configuration<br>   ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/<br>  <br></td>
@@ -1147,24 +807,14 @@
                               <td>     Min number of pods that must still be available after the eviction<br>    <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Max number of pods that can be unavailable after the eviction<br>    <br>     maxUnavailable: 1<br></td>
-                          </tr>
-                          <tr>
                               <td>secondary</td>
                               <td></td>
-                              <td> MySQL Secondary parameters<br><br></td>
+                              <td>     Max number of pods that can be unavailable after the eviction<br>    <br>     maxUnavailable: 1<br> MySQL Secondary parameters<br><br></td>
                           </tr>
                           <tr>
                               <td>  replicaCount</td>
                               <td> 1</td>
                               <td>   Number of MySQL Secondary replicas to deploy<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  command</td>
@@ -1177,174 +827,19 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  configuration</td>
-                              <td> |-</td>
+                              <td> |-    [mysqld]    default_authentication_plugin=mysql_native_password    skip-name-resolve    explicit_defaults_for_timestamp    basedir=/opt/bitnami/mysql    port=3306    socket=/opt/bitnami/mysql/tmp/mysql.sock    datadir=/bitnami/mysql/data    tmpdir=/opt/bitnami/mysql/tmp    max_allowed_packet=16M    bind-address=0.0.0.0    pid-file=/opt/bitnami/mysql/tmp/mysqld.pid    log-error=/opt/bitnami/mysql/logs/mysqld.log    character-set-server=UTF8    collation-server=utf8_general_ci    [client]    port=3306    socket=/opt/bitnami/mysql/tmp/mysql.sock    default-character-set=UTF8    [manager]    port=3306    socket=/opt/bitnami/mysql/tmp/mysql.sock    pid-file=/opt/bitnami/mysql/tmp/mysqld.pid</td>
                               <td>   Configure MySQL Secondary with a custom my.cnf file<br>   ref: https://mysql.com/kb/en/mysql/configuring-mysql-with-mycnf/example-of-configuration-file<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td>    [mysqld]</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    default_authentication_plugin=mysql_native_password</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    skip-name-resolve</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    explicit_defaults_for_timestamp</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    basedir=/opt/bitnami/mysql</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    port=3306</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    socket=/opt/bitnami/mysql/tmp/mysql.sock</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    datadir=/bitnami/mysql/data</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    tmpdir=/opt/bitnami/mysql/tmp</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    max_allowed_packet=16M</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    bind-address=0.0.0.0</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    pid-file=/opt/bitnami/mysql/tmp/mysqld.pid</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    log-error=/opt/bitnami/mysql/logs/mysqld.log</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    character-set-server=UTF8</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    collation-server=utf8_general_ci</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    [client]</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    port=3306</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    socket=/opt/bitnami/mysql/tmp/mysql.sock</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    default-character-set=UTF8</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    [manager]</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    port=3306</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    socket=/opt/bitnami/mysql/tmp/mysql.sock</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>    pid-file=/opt/bitnami/mysql/tmp/mysqld.pid</td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Name of existing ConfigMap with MySQL Secondary configuration.<br>   NOTE: When it's set the 'configuration' parameter is ignored<br>  <br>   existingConfiguration:<br></td>
                           </tr>
                           <tr>
                               <td>  updateStrategy</td>
                               <td> RollingUpdate</td>
-                              <td>   updateStrategy for MySQL Secondary statefulset<br>   ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/update-strategies<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>   Partition update strategy for MySQL Secondary statefulset<br>   https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/partitions<br>  <br>   rollingUpdatePartition:<br></td>
+                              <td>   Name of existing ConfigMap with MySQL Secondary configuration.<br>   NOTE: When it's set the 'configuration' parameter is ignored<br>  <br>   existingConfiguration:<br>   updateStrategy for MySQL Secondary statefulset<br>   ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/update-strategies<br>  <br></td>
                           </tr>
                           <tr>
                               <td>  podAnnotations</td>
                               <td> {}</td>
-                              <td>   MySQL Secondary pod annotations<br>   ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>   Partition update strategy for MySQL Secondary statefulset<br>   https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/partitions<br>  <br>   rollingUpdatePartition:<br>   MySQL Secondary pod annotations<br>   ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/<br>  <br></td>
                           </tr>
                           <tr>
                               <td>  podAffinityPreset</td>
@@ -1352,19 +847,9 @@
                               <td>   MySQL Secondary pod affinity preset<br>   ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/inter-pod-affinity-and-anti-affinity<br>   Allowed values: soft, hard<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  podAntiAffinityPreset</td>
                               <td> soft</td>
                               <td>   MySQL Secondary pod anti-affinity preset<br>   ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/inter-pod-affinity-and-anti-affinity<br>   Allowed values: soft, hard<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  nodeAffinityPreset</td>
@@ -1387,19 +872,9 @@
                               <td>     Node label values to match<br>     E.g.<br>     values:<br>       - e2e-az1<br>       - e2e-az2<br>    <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  affinity</td>
                               <td> {}</td>
                               <td>   Affinity for MySQL secondary pods assignment<br>   ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/affinity-and-anti-affinity<br>   Note: podAffinityPreset, podAntiAffinityPreset, and  nodeAffinityPreset will be ignored when it's set<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  nodeSelector</td>
@@ -1407,19 +882,9 @@
                               <td>   Node labels for MySQL secondary pods assignment<br>   ref: https://kubernetes.io/docs/user-guide/node-selection/<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  tolerations</td>
                               <td> []</td>
                               <td>   Tolerations for MySQL secondary pods assignment<br>   ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  podSecurityContext</td>
@@ -1434,11 +899,6 @@
                           <tr>
                               <td>    fsGroup</td>
                               <td> 1001</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -1457,11 +917,6 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  resources</td>
                               <td></td>
                               <td>   MySQL secondary container's resource requests and limits<br>   ref: http://kubernetes.io/docs/user-guide/compute-resources/<br>  <br></td>
@@ -1477,14 +932,9 @@
                               <td>       memory: 256Mi<br>       cpu: 250m<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>       memory: 256Mi<br>       cpu: 250m<br></td>
-                          </tr>
-                          <tr>
                               <td>  livenessProbe</td>
                               <td></td>
-                              <td>   MySQL secondary container's liveness and readiness probes<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/container-probes<br>  <br></td>
+                              <td>       memory: 256Mi<br>       cpu: 250m<br>   MySQL secondary container's liveness and readiness probes<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/container-probes<br>  <br></td>
                           </tr>
                           <tr>
                               <td>    enabled</td>
@@ -1552,19 +1002,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  customLivenessProbe</td>
                               <td> {}</td>
                               <td>   MySQL secondary custom liveness probe<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  customReadinessProbe</td>
@@ -1572,19 +1012,9 @@
                               <td>   MySQL secondary custom rediness probe<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraFlags</td>
                               <td> ""</td>
                               <td>   MySQL secondary additional command line flags<br>   Can be used to specify command line flags, for example:<br>   E.g.<br>   extraFlags: "--max-connect-errors=1000 --max_connections=155"<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  extraEnvVars</td>
@@ -1592,29 +1022,14 @@
                               <td>   An array to add extra environment variables on MySQL secondary containers<br>   E.g.<br>   extraEnvVars:<br>    - name: TZ<br>      value: "Europe/Paris"<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraEnvVarsCM</td>
                               <td> ""</td>
                               <td>   ConfigMap with extra env vars for MySQL secondary containers:<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraEnvVarsSecret</td>
                               <td> ""</td>
                               <td>   Secret with extra env vars for MySQL secondary containers:<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  persistence</td>
@@ -1633,13 +1048,8 @@
                           </tr>
                           <tr>
                               <td>    accessModes</td>
-                              <td></td>
-                              <td>     Persistent Volume Access Mode<br>    <br></td>
-                          </tr>
-                          <tr>
                               <td>      - ReadWriteOnce</td>
-                              <td></td>
-                              <td></td>
+                              <td>     Persistent Volume Access Mode<br>    <br></td>
                           </tr>
                           <tr>
                               <td>    size</td>
@@ -1652,19 +1062,9 @@
                               <td>     selector can be used to match an existing PersistentVolume<br>     selector:<br>       matchLabels:<br>         app: my-app<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraVolumes</td>
                               <td> []</td>
                               <td>   Extra volumes to add to the MySQL Secondary pod(s)<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  extraVolumeMounts</td>
@@ -1672,29 +1072,14 @@
                               <td>   Extra volume mounts to add to the MySQL Secondary container(s)<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  initContainers</td>
                               <td> []</td>
                               <td>   Extra init containers to add to the MySQL Secondary pod(s)<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  sidecars</td>
                               <td> []</td>
                               <td>   Extra sidecar containers to add to the MySQL Secondary pod(s)<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>  service</td>
@@ -1737,11 +1122,6 @@
                               <td>     Provide any additional annotations which may be required<br>    <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  pdb</td>
                               <td></td>
                               <td>   MySQL secondary Pod Disruption Budget configuration<br>   ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/<br>  <br></td>
@@ -1757,14 +1137,9 @@
                               <td>     Min number of pods that must still be available after the eviction<br>    <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Max number of pods that can be unavailable after the eviction<br>    <br>     maxUnavailable: 1<br></td>
-                          </tr>
-                          <tr>
                               <td>serviceAccount</td>
                               <td></td>
-                              <td> MySQL pods ServiceAccount<br> ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/<br><br></td>
+                              <td>     Max number of pods that can be unavailable after the eviction<br>    <br>     maxUnavailable: 1<br> MySQL pods ServiceAccount<br> ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/<br><br></td>
                           </tr>
                           <tr>
                               <td>  create</td>
@@ -1777,11 +1152,6 @@
                               <td>   The name of the ServiceAccount to use.<br>   If not set and create is true, a name is generated using the mysql.fullname template<br>  <br>   name:<br>   Annotations to add to the service account (evaluated as a template)<br>  <br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>rbac</td>
                               <td></td>
                               <td> Role Based Access<br> ref: https://kubernetes.io/docs/admin/authorization/rbac/<br><br></td>
@@ -1790,11 +1160,6 @@
                               <td>  create</td>
                               <td> false</td>
                               <td>   Specifies whether RBAC rules should be created<br>  <br></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                           </tr>
                           <tr>
                               <td>volumePermissions</td>
@@ -1837,11 +1202,6 @@
                               <td>     Optionally specify an array of imagePullSecrets.<br>     Secrets must be manually created in the namespace.<br>     ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/<br>    <br>     pullSecrets:<br>       - myRegistryKeySecretName<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>metrics</td>
                               <td></td>
                               <td> Mysqld Prometheus exporter paramters<br><br></td>
@@ -1877,14 +1237,9 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>     Optionally specify an array of imagePullSecrets.<br>     Secrets must be manually created in the namespace.<br>     ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/<br>    <br>     pullSecrets:<br>       - myRegistryKeySecretName<br></td>
-                          </tr>
-                          <tr>
                               <td>  service</td>
                               <td></td>
-                              <td>   MySQL Prometheus exporter service parameters<br>   Mysqld Prometheus exporter liveness and readiness probes<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/container-probes  <br></td>
+                              <td>     Optionally specify an array of imagePullSecrets.<br>     Secrets must be manually created in the namespace.<br>     ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/<br>    <br>     pullSecrets:<br>       - myRegistryKeySecretName<br>   MySQL Prometheus exporter service parameters<br>   Mysqld Prometheus exporter liveness and readiness probes<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/container-probes  <br></td>
                           </tr>
                           <tr>
                               <td>    type</td>
@@ -1912,11 +1267,6 @@
                               <td></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
                               <td>  extraArgs</td>
                               <td></td>
                               <td>   Extra args to be passed to mysqld_exporter<br>   ref: https://github.com/prometheus/mysqld_exporter/<br>   E.g.<br>   - --collect.auto_increment.columns<br>   - --collect.binlog_size<br>   - --collect.engine_innodb_status<br>   - --collect.engine_tokudb_status<br>   - --collect.global_status<br>   - --collect.global_variables<br>   - --collect.info_schema.clientstats<br>   - --collect.info_schema.innodb_metrics<br>   - --collect.info_schema.innodb_tablespaces<br>   - --collect.info_schema.innodb_cmp<br>   - --collect.info_schema.innodb_cmpmem<br>   - --collect.info_schema.processlist<br>   - --collect.info_schema.processlist.min_time<br>   - --collect.info_schema.query_response_time<br>   - --collect.info_schema.tables<br>   - --collect.info_schema.tables.databases<br>   - --collect.info_schema.tablestats<br>   - --collect.info_schema.userstats<br>   - --collect.perf_schema.eventsstatements<br>   - --collect.perf_schema.eventsstatements.digest_text_limit<br>   - --collect.perf_schema.eventsstatements.limit<br>   - --collect.perf_schema.eventsstatements.timelimit<br>   - --collect.perf_schema.eventswaits<br>   - --collect.perf_schema.file_events<br>   - --collect.perf_schema.file_instances<br>   - --collect.perf_schema.indexiowaits<br>   - --collect.perf_schema.tableiowaits<br>   - --collect.perf_schema.tablelocks<br>   - --collect.perf_schema.replication_group_member_stats<br>   - --collect.slave_status<br>   - --collect.slave_hosts<br>   - --collect.heartbeat<br>   - --collect.heartbeat.database<br>   - --collect.heartbeat.table<br>  <br></td>
@@ -1929,11 +1279,6 @@
                           <tr>
                               <td>    secondary</td>
                               <td> []</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -1952,14 +1297,9 @@
                               <td>       memory: 256Mi<br>       cpu: 100m<br></td>
                           </tr>
                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td>       memory: 256Mi<br>       cpu: 100m<br></td>
-                          </tr>
-                          <tr>
                               <td>  livenessProbe</td>
                               <td></td>
-                              <td>   Mysqld Prometheus exporter liveness and readiness probes<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/container-probes<br>  <br></td>
+                              <td>       memory: 256Mi<br>       cpu: 100m<br>   Mysqld Prometheus exporter liveness and readiness probes<br>   ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/container-probes<br>  <br></td>
                           </tr>
                           <tr>
                               <td>    enabled</td>
@@ -2024,11 +1364,6 @@
                           <tr>
                               <td>    failureThreshold</td>
                               <td> 3</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
                               <td></td>
                           </tr>
                           <tr>
