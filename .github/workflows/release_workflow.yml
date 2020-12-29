@@ -4,7 +4,7 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   release:
@@ -23,6 +23,6 @@ jobs:
         with:
           directory: ./helm-doc-maven-plugin/
           maven_goals_phases: clean deploy
-          #maven_profiles: release
+          maven_profiles: release
           nexus_username: ${{ secrets.nexus_username }}
           nexus_password: ${{ secrets.nexus_password }}
