@@ -17,6 +17,12 @@
         </license>
     </licenses>
 
+    <scm>
+        <url>git://git@github.com:aurabhi/helm-doc/helm-doc.git</url>
+        <connection>scm:git:git@github.com:aurabhi/helm-doc.git</connection>
+        <developerConnection>scm:git:git@github.com:aurabhi/helm-doc.git</developerConnection>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -93,6 +99,15 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <checkModificationExcludes>
+                        <checkModificationExclude>pom.xml</checkModificationExclude>
+                    </checkModificationExcludes>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
