@@ -1,4 +1,4 @@
-# helm-doc | ![Build](https://github.com/aurabhi/helm-doc/workflows/Maven%20CI/CD/badge.svg) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aurabhi/helm-doc/blob/main/LICENSE) 
+# helm-doc-maven-plugin | ![Build](https://github.com/aurabhi/helm-doc/workflows/Maven%20CI/CD/badge.svg) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aurabhi/helm-doc/blob/main/LICENSE) 
 
 
 
